@@ -42,6 +42,6 @@ through which XCache node in this way:
 The way this works is that XCaches every 10 seconds send heartbeats and space
 available to Rucio. Rucio then in real time calculates which XCache is optimal
 for each file. While Rucio list-file-replicas call might be expensive, it
-guaranties returned paths will work. If you still decide to cache list of the
+guarantees returned paths will work. If you still decide to cache list of the
 paths, please keep in mind that available XCaches might change and you will have
 to refresh it.
