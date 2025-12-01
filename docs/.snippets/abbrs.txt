@@ -18,3 +18,4 @@
 *[VM]: Virtual Machine
 *[VMs]: Virtual Machines
 *[xAOD]: ATLAS Analysis Object Data
+*[RSE]: Rucio Storage Element (e.g. `MWT2_UC_LOCALGROUP_DISK`)

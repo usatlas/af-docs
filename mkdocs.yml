@@ -70,6 +70,8 @@ nav:
   - Computing and Access:
       - computing/index.md
       - About the Facilities: computing/facilities.md
+      - Hardware:
+          - UChicago: uchicago/hardware.md
       - Signing Up:
           - BNL: bnl/account.md
           - UChicago: uchicago/account.md
@@ -128,12 +130,17 @@ nav:
               - xAOD Check: jupyter/examples/xAODcheck.md
               - Read xAOD with PyROOT: https://github.com/usatlas/docs/blob/master/jupyter/examples/pyROOT_example.ipynb
               - Uproot Variable Conversion: jupyter/examples/convert_specific_variables.py.txt
+      - ServiceX:
+          - UChicago: uchicago/servicex.md
       - AI Inference:
           - Triton (UChicago):
               - User Guide: uchicago/triton.md
               - Deployment Notes: uchicago/triton_deployment.md
       - Development Tools:
-          - Using VSCode: tools/vscode.md
+          - VSCode:
+              - Overview: tools/vscode.md
+              - BNL: bnl/vscode.md
+              - UChicago: uchicago/vscode.md
 
   - Tutorials:
       - Overview: tutorials/201908/info.md

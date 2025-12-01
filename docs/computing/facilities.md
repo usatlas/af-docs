@@ -8,7 +8,7 @@
 | **Interactive Nodes** | atl-dev01.bnl.gov | login.af.uchicago.edu | sdf-login.slac.stanford.edu |
 | **JupyterLab**        | ✓                 | ✓                     | ✓                           |
 | **GPUs**              | ✓                 | ✓                     | ✓                           |
-| **Xcache**            | 60TB              | 37.5TB                | 20TB                        |
+| **XCache**            | 60TB              | 37.5TB                | 20TB                        |
 
 ---
 
@@ -47,7 +47,7 @@ CERN identity.
 The SLAC Analysis Facility is open to and welcome all US ATLAS physicists and
 their ATLAS collaborators. The AF provides backup-ed user home directories,
 dedicated private data space, and several Rucio endpoints for user to bring
-official ATLAS data products to site for local processing. A Xcache is also
+official ATLAS data products to site for local processing. XCache is also
 available for users to quickly scan though official ATLAS data product without
 moving data to SLAC. SLAC AF uses SLURM to manage batch systems. US ATLAS has
 deploy dedicated CPU resource and GPU resource at SLAC AF. AF users also have

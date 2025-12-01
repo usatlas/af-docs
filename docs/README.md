@@ -27,7 +27,7 @@ interactive and batch jobs, access ATLAS data, store private data, etc.
 
 The AFs also support a wide variety of tools specific for analysis, including
 ATLAS/CERN software in CVMFS, Grid middleware, Rucio clients, Machine Learning
-packages, MPI, Jupyter Lab with PyROOT, Xcache with auto data discovery, GPUs,
+packages, MPI, Jupyter Lab with PyROOT, XCache with auto data discovery, GPUs,
 etc. The three facilities are backed by staff to support software environments,
 unix systems and storage.
 
