@@ -104,7 +104,7 @@ reach the ATLAS AF team.
 
     [:octicons-arrow-right-24: Start Learning](tutorials/201908/info.md)
 
-- :material-container:{ .lg .middle } **Containers**
+- :octicons-container-24:{ .lg .middle } **Containers**
 
     ***
 
