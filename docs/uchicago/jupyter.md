@@ -66,6 +66,17 @@ For the complete list of packages, version information, and detailed
 documentation, see the
 [ml_platform repository](https://github.com/maniaclab/ml_platform).
 
+#### Installing
+
+You can install additional packages directly from your notebook with [`pixi`](https://pixi.prefix.dev/latest/). The `ml_platform` image organizes packages under features. For ML-related packages, use the `ml` feature (`-f ml`) and install them with the `ml` environment (`-e ml`).
+
+**Example**: installing the GPU-version of `pytorch` along with `torchvision` and `xgboost` available on [conda-forge](https://conda-forge.org/packages/), you can run the following inside the notebook
+
+```
+pixi add -f ml pytorch-gpu torchvision xgboost
+pixi install -e ml
+```
+
 ### AnalysisBase Images
 
 - **AB-stable** - Based on AnalysisBase
