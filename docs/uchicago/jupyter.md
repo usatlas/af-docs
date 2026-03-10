@@ -82,8 +82,8 @@ pixi add -f ml pytorch-gpu torchvision xgboost
 pixi install -e ml
 ```
 
-For more advanced pixi usage, including custom environments and multi-environment
-support, see the [pixi](#pixi) section below.
+For more advanced pixi usage, including custom environments and
+multi-environment support, see the [pixi](#pixi) section below.
 
 ### AnalysisBase Images
 
@@ -133,14 +133,14 @@ pixi and register it as a kernel:
     name: my-custom-env
     channels: ["conda-forge"]
     dependencies:
-      - mplhep
-      - scikit-learn
-      - pytorch-cpu  # or pytorch-gpu
-      - torchinfo
-      - pytorch_geometric
-      - pip:
-        - da4ml
-        - atlas-mpl-style
+        - mplhep
+        - scikit-learn
+        - pytorch-cpu # or pytorch-gpu
+        - torchinfo
+        - pytorch_geometric
+        - pip:
+              - da4ml
+              - atlas-mpl-style
     ```
 
 2. Import the environment into pixi as a new feature:
@@ -159,12 +159,12 @@ pixi and register it as a kernel:
 
 1. When you first start JupyterLab, you'll be using the default `ipykernel`
 2. To switch to your custom environment:
-     - Click the kernel selector in the top-right corner
-     - Select the `pixi` kernel (this enables multi-environment support)
-     - Click the property inspector (gear icon) on the right sidebar
-     - Select your custom environment (e.g., `my-custom-env`)
-     - Save the notebook
-     - Restart the kernel
+    - Click the kernel selector in the top-right corner
+    - Select the `pixi` kernel (this enables multi-environment support)
+    - Click the property inspector (gear icon) on the right sidebar
+    - Select your custom environment (e.g., `my-custom-env`)
+    - Save the notebook
+    - Restart the kernel
 
 Your notebook will now use the selected pixi environment. Each notebook can use
 a different environment, and the selection is saved with the notebook.
@@ -175,8 +175,8 @@ a different environment, and the selection is saved with the notebook.
   various ways to import existing environments
 - [Pixi multi-environment guide](https://pixi.prefix.dev/latest/tutorials/multi_environment/) -
   comprehensive tutorial on managing multiple environments
-- [pixi-kernel GitHub](https://github.com/renan-r-santos/pixi-kernel) -
-  kernel integration documentation
+- [pixi-kernel GitHub](https://github.com/renan-r-santos/pixi-kernel) - kernel
+  integration documentation
 
 ### Creating Features from Scratch
 
@@ -315,12 +315,13 @@ Common issues and solutions when working with pixi environments:
 
 **Problem: Kernel not appearing in JupyterLab**
 
-After creating a feature and adding `pixi-kernel`, the kernel doesn't show up
-in the property inspector.
+After creating a feature and adding `pixi-kernel`, the kernel doesn't show up in
+the property inspector.
 
-*Solution:*
+_Solution:_
 
-1. Verify `pixi-kernel` was added to the feature: `pixi list -e my-env | grep pixi-kernel`
+1. Verify `pixi-kernel` was added to the feature:
+   `pixi list -e my-env | grep pixi-kernel`
 2. Reinstall the environment: `pixi install -e my-env`
 3. Restart JupyterLab completely (stop and start the notebook server)
 4. Make sure you've switched to the `pixi` kernel (not `ipykernel`)
@@ -329,7 +330,7 @@ in the property inspector.
 
 You get conflicts when trying to add packages or import an environment.
 
-*Solution:*
+_Solution:_
 
 ```bash
 # Try updating the lock file
@@ -344,9 +345,10 @@ pixi update -f my-feature
 
 You created an environment but it doesn't show up when you click the gear icon.
 
-*Solution:*
+_Solution:_
 
-The property inspector only shows environments that have `pixi-kernel` installed:
+The property inspector only shows environments that have `pixi-kernel`
+installed:
 
 ```bash
 # Add pixi-kernel to your feature
@@ -360,7 +362,7 @@ pixi install -e my-feature
 
 You selected an environment in the property inspector but imports still fail.
 
-*Solution:*
+_Solution:_
 
 1. Save the notebook after selecting the environment
 2. Restart the kernel (Kernel → Restart Kernel)
@@ -371,7 +373,7 @@ You selected an environment in the property inspector but imports still fail.
 
 Multiple environments are consuming too much storage.
 
-*Solution:*
+_Solution:_
 
 ```bash
 # Clean up cached packages
@@ -390,7 +392,7 @@ pixi install
 
 `pixi import` or `pixi install` seems to hang or takes a very long time.
 
-*Solution:*
+_Solution:_
 
 - Large environments with many dependencies can take several minutes
 - Check your internet connection (pixi downloads packages)
@@ -401,7 +403,7 @@ pixi install
 
 Your environment is using a different Python version than expected.
 
-*Solution:*
+_Solution:_
 
 Explicitly specify the Python version when creating the feature:
 
