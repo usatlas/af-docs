@@ -71,7 +71,7 @@ documentation, see the
 You can install additional packages directly from your notebook with
 [`pixi`](https://pixi.prefix.dev/latest/). The `ml_platform` image organizes
 packages under features. For ML-related packages, use the `ml` feature (`-f ml`)
-and install them with the `ml` environment (`-e ml`).
+and install them with the `ml` environment (`-e ml`). If you are not using a GPU-node, you can use the `mlcpu` environment which has the same set of packages without the `cuda` system requirement.
 
 **Example**: installing the GPU-version of `pytorch` along with `torchvision`
 and `xgboost` available on [conda-forge](https://conda-forge.org/packages/), you
@@ -274,16 +274,16 @@ pixi install -e my-env
 Choose the right approach for your needs to keep your environments manageable
 and maintainable:
 
-**When to use the simple approach** (add to `ml` feature):
+**When to use the simple approach** (add to `ml` or `mlcpu` feature):
 
 - You need just a few additional packages
-- Packages are compatible with the existing `ml` environment
+- Packages are compatible with the existing `ml` or `mlcpu` environment
 - You're doing exploratory work or quick prototyping
 - You don't need strict version control
 
 **When to create a custom environment:**
 
-- You need specific package versions that conflict with `ml`
+- You need specific package versions that conflict with `ml` or `mlcpu`
 - You're working on a long-term project with specific dependencies
 - You want to isolate different projects from each other
 - You're collaborating and need reproducible environments
