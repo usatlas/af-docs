@@ -71,7 +71,9 @@ documentation, see the
 You can install additional packages directly from your notebook with
 [`pixi`](https://pixi.prefix.dev/latest/). The `ml_platform` image organizes
 packages under features. For ML-related packages, use the `ml` feature (`-f ml`)
-and install them with the `ml` environment (`-e ml`). If you are not using a GPU-node, you can use the `mlcpu` environment which has the same set of packages without the `cuda` system requirement.
+and install them with the `ml` environment (`-e ml`). If you are not using a
+GPU-node, you can use the `mlcpu` environment which has the same set of packages
+without the `cuda` system requirement.
 
 **Example**: installing the GPU-version of `pytorch` along with `torchvision`
 and `xgboost` available on [conda-forge](https://conda-forge.org/packages/), you
