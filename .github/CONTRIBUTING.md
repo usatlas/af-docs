@@ -15,33 +15,8 @@ $ pixi run build-check  # Build and validate all links
 $ pixi run validate     # Validate links in the built site
 ```
 
-You can also pass arguments to customize the config file:
-
-```console
-$ pixi run build --config custom-mkdocs.yml
-$ pixi run serve --config custom-mkdocs.yml
-```
-
 pixi handles everything for you, including setting up a temporary virtual
-environment with all required dependencies (mkdocs, plugins, linkchecker, etc.).
-
-# Setting up a development environment manually
-
-If you prefer not to use pixi, you can set up a development environment by
-running:
-
-```bash
-python3 -m venv .venv
-source ./.venv/bin/activate
-pip install -r requirements.txt
-```
-
-Then you can run mkdocs directly:
-
-```bash
-mkdocs build  # Build the documentation
-mkdocs serve  # Build and serve the docs locally
-```
+environment with all required dependencies (zensical, plugins, lychee, etc.).
 
 # Post setup
 
@@ -58,7 +33,7 @@ You can also/alternatively run `pre-commit run` (changes only) or
 
 # Building docs
 
-This project uses MkDocs for documentation. The documentation is automatically
+This project uses Zensical for documentation. The documentation is automatically
 built and published via GitHub Pages when changes are pushed to the main branch.
 
 You can build the docs locally using pixi:
@@ -81,8 +56,8 @@ To validate all links in the documentation:
 pixi run build-check
 ```
 
-This will build the documentation without directory URLs and run linkchecker to
-validate all links (note: requires a `.linkcheckerrc` configuration file).
+This will build the documentation without directory URLs and run lychee to
+validate all links (note: requires a `lychee.toml` configuration file).
 
 # Pre-commit
 
