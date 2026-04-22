@@ -10,3 +10,4 @@ skills for each USATLAS Analysis Facility.
 
 - [rucio-mcp](https://rucio-mcp.readthedocs.io/en/latest/)
 - [ami-mcp](https://ami-mcp.readthedocs.io/en/latest/)
+- [atlasopenmagic-mcp](https://github.com/atlas-outreach-data-tools/atlasopenmagic-mcp)
