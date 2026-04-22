@@ -45,17 +45,15 @@ for two reasons:
 - The scratch disk is _ephemeral_. HTCondor will automatically clean up the
   scratch disk for the next workload when your job has finished using it.
 
-/// warning | Don't lose your data!
+!!! warning "Don't lose your data!"
 
-With this in mind, you will need to make sure that you copy your output data
-away from the `$SCRATCH` filesystem and into the `$DATA` filesystem at the end
-of your job. Any data left in `$SCRATCH` will be lost at the end of your job!
-When submitting jobs, you should try to use the scratch disk whenever possible.
-This will help you be a "good neighbor" to other users on the system, and reduce
-overall stress on the shared filesystems, which can lead to slowness, downtimes,
-etc.
-
-///
+    With this in mind, you will need to make sure that you copy your output data
+    away from the `$SCRATCH` filesystem and into the `$DATA` filesystem at the end
+    of your job. Any data left in `$SCRATCH` will be lost at the end of your job!
+    When submitting jobs, you should try to use the scratch disk whenever possible.
+    This will help you be a "good neighbor" to other users on the system, and reduce
+    overall stress on the shared filesystems, which can lead to slowness, downtimes,
+    etc.
 
 To summarize, please review the following table:
 

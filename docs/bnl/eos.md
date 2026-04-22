@@ -12,12 +12,10 @@ way of using ssh-tunnel below) by:
 kinit YourNameAtCERN@CERN.CH
 ```
 
-/// warning | CERN.CH must be uppercase
+!!! warning "CERN.CH must be uppercase"
 
-Please be aware that in the above command the realm **CERN.CH** must be in
-**UPPERCASE**.
-
-///
+    Please be aware that in the above command the realm **CERN.CH** must be in
+    **UPPERCASE**.
 
 As convenience for the US ATLAS users, we have installed the eos-client and
 eos-fusex packages on the interactive nodes.
@@ -32,11 +30,9 @@ ls /eos/atlas/...
 ls /eos/user/y/yesw/...
 ```
 
-/// note
+!!! note
 
-Please replace _"y/yesw"_ with your own username at CERN.
-
-///
+    Please replace _"y/yesw"_ with your own username at CERN.
 
 To copy files from EOS:
 

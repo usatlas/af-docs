@@ -1,0 +1,207 @@
+# Read more: https://zensical.org/docs/setup/basics
+
+[project]
+site_name = "US ATLAS Analysis Facilities"
+site_description = "Documentation for UChicago Analysis Facility (AF)"
+site_author = "USATLAS"
+copyright = """
+Copyright &copy; USATLAS 2025-present
+"""
+
+nav = [
+  { Home = [
+      { Introduction = "README.md" },
+      { "FAQs and Tips" = "faqs_tips.md" },
+  ]},
+
+  { "Funding Acknowledgement" = "acknowledgement.md" },
+  { "Need Help?" = "getting_help.md" },
+
+  { "Computing and Access" = [
+      "computing/index.md",
+      { "About the Facilities" = "computing/facilities.md" },
+
+      { Hardware = [
+          { UChicago = "uchicago/hardware.md" },
+      ]},
+
+      { "Signing Up" = [
+          { BNL = "bnl/account.md" },
+          { UChicago = "uchicago/account.md" },
+          { SLAC = "slac/account.md" },
+      ]},
+
+      { Accessing = [
+          { "SSH Guide" = "computing/ssh_guide.md" },
+          { BNL = "bnl/accessing.md" },
+          { UChicago = "uchicago/accessing.md" },
+          { SLAC = "slac/accessing.md" },
+      ]},
+
+      { "Running Jobs" = [
+          { BNL = "bnl/batch.md" },
+          { UChicago = "uchicago/batch.md" },
+          { SLAC = "slac/batch.md" },
+      ]},
+
+      { Data = [
+          { Storage = [
+              { BNL = "bnl/storage.md" },
+              { UChicago = "uchicago/storage.md" },
+              { SLAC = "slac/storage.md" },
+          ]},
+          { Sharing = [
+              { BNL = "bnl/data_sharing.md" },
+              { UChicago = "uchicago/data_sharing.md" },
+              { SLAC = "slac/data_sharing.md" },
+          ]},
+          { XCache = [
+              { BNL = "bnl/xcache.md" },
+              { UChicago = "uchicago/xcache.md" },
+              { SLAC = "slac/xcache.md" },
+          ]},
+          { EOS = [
+              { BNL = "bnl/eos.md" },
+              { UChicago = "uchicago/eos.md" },
+          ]},
+      ]},
+  ]},
+
+  { "Software & Tools" = [
+      { Containers = [
+          { "Machine Learning" = [
+              { Info = "containers/ml/info.md" },
+              { Contents = "containers/ml/contents.md" },
+              { Implementing = "containers/ml/implement.md" },
+          ]},
+          { "ATLAS Analysis" = [
+              { "OS Containers" = "containers/atlas/os.md" },
+              { "Release Containers" = "containers/atlas/release.md" },
+          ]},
+          { Singularity = [
+              { Introduction = "containers/singularity/introduction.md" },
+              { Installation = "containers/singularity/installation.md" },
+              { Usage = "containers/singularity/usage.md" },
+              { Images = "containers/singularity/images.md" },
+              { "Grid Jobs" = "containers/singularity/grid.md" },
+          ]},
+      ]},
+
+      { Jupyter = [
+          { Overview = "jupyter/info.md" },
+          { "Access per Site" = [
+              { BNL = "bnl/jupyter.md" },
+              { UChicago = "uchicago/jupyter.md" },
+              { SLAC = "slac/jupyter.md" },
+          ]},
+          { Advanced = [
+              { "Coffea on UChicago" = "uchicago/jupyter_coffea.md" },
+              { "Extending on SLAC" = "slac/jupyter_extra.md" },
+          ]},
+          { Examples = [
+              { "xAOD Check" = "jupyter/examples/xAODcheck.md" },
+              { "Read xAOD with PyROOT" = "https://github.com/usatlas/docs/blob/master/jupyter/examples/pyROOT_example.ipynb" },
+              { "Uproot Variable Conversion" = "jupyter/examples/convert_specific_variables.py.txt" },
+          ]},
+      ]},
+
+      { ServiceX = [
+          { UChicago = "uchicago/servicex.md" },
+      ]},
+
+      { AI = [
+          { Overview = "ai.md" },
+          { Inference = [
+              { "Triton (UChicago)" = [
+                  { "User Guide" = "uchicago/triton.md" },
+                  { "Deployment Notes" = "uchicago/triton_deployment.md" },
+              ]},
+          ]},
+      ]},
+
+      { "Development Tools" = [
+          { VSCode = [
+              { Overview = "tools/vscode.md" },
+              { BNL = "bnl/vscode.md" },
+              { UChicago = "uchicago/vscode.md" },
+          ]},
+      ]},
+  ]},
+
+  { Tutorials = [
+      { Overview = "tutorials/201908/info.md" },
+      { "BNL Examples" = "tutorials/201908/bnl.md" },
+      { "SLAC Examples" = "tutorials/201908/slac.md" },
+      { "Grid Examples" = "tutorials/201908/grid.md" },
+  ]},
+]
+
+[project.theme]
+language = "en"
+features = [
+    "announce.dismiss",
+    "content.code.annotate",
+    "content.code.copy",
+    "content.code.select",
+    "content.footnote.tooltips",
+    "content.tabs.link",
+    "content.tooltips",
+    "navigation.footer",
+    "navigation.indexes",
+    "navigation.instant",
+    "navigation.instant.prefetch",
+    "navigation.path",
+    "navigation.sections",
+    "navigation.top",
+    "navigation.tracking",
+    "search.highlight",
+]
+favicon = "images/lgbt_atlas.png"
+logo = "images/lgbt_atlas.png"
+
+[[project.theme.palette]]
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/kratsg/stare"
+
+# All default markdown extensions are reproduced here to add snippets support.
+# Emoji generator/index resolved from zensical.extensions.emoji (not material).
+[project.markdown_extensions]
+abbr = {}
+admonition = {}
+attr_list = {}
+def_list = {}
+footnotes = {}
+md_in_html = {}
+
+[project.markdown_extensions.pymdownx]
+arithmatex = {generic = true}
+betterem = {}
+caret = {}
+details = {}
+highlight = {anchor_linenums = true, line_spans = "__span", pygments_lang_class = true}
+inlinehilite = {}
+keys = {}
+magiclink = {}
+mark = {}
+smartsymbols = {}
+tabbed = {alternate_style = true, combine_header_slug = true}
+tasklist = {custom_checkbox = true}
+tilde = {}
+snippets = {base_path = ["."]}
+
+[project.markdown_extensions.pymdownx.emoji]
+emoji_generator = "zensical.extensions.emoji.to_svg"
+emoji_index = "zensical.extensions.emoji.twemoji"
+
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [{name = "mermaid", class = "mermaid"}]

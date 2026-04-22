@@ -20,26 +20,22 @@ If you are trying to use HTCondor driver to run some jobs that need data access
 authorization, for example on `rucio`, always check the status of your proxy
 grid certificate.
 
-/// warning | Proxy certificate expiration
+!!! warning "Proxy certificate expiration"
 
-Your x509proxy certificate has an expiry date. Once it expires you have to
-create an ATLAS VOMS proxy again in the usual way.
+    Your x509proxy certificate has an expiry date. Once it expires you have to
+    create an ATLAS VOMS proxy again in the usual way.
 
-///
+!!! note "Default location"
 
-/// note | Default location
+    By default, the `$X509_USER_PROXY` is set to store in your home directory:
 
-By default, the `$X509_USER_PROXY` is set to store in your home directory:
+    ```bash
+    voms-proxy-init -voms atlas
+    # stores in /home/$USER/x509_u$UID
+    ```
 
-```bash
-voms-proxy-init -voms atlas
-# stores in /home/$USER/x509_u$UID
-```
-
-The shared `$HOME` filesystem is used so that the HTCondor scheduler can find
-and read the proxy.
-
-///
+    The shared `$HOME` filesystem is used so that the HTCondor scheduler can find
+    and read the proxy.
 
 Once you renew your proxy certificate, add the following line to your job submit
 file so that HTCondor configures the job environment automatically for x509

@@ -1,0 +1,17 @@
+exclude = [
+     "http://hep.uchicago.edu/~kkrizka/rootcoreapis/dd/d44/namespacexAOD.html",
+     "https://confluence.slac.stanford.edu/display/SCSPub/FastX",
+     "https://cs.calvin.edu/courses/cs/374/CUDA/CUDA-Thread-Indexing-Cheatsheet.pdf",
+     "https://dcgftp.usatlas.bnl.gov/pnfs/usatlas.bnl.gov/users/youraccount/xyz/",
+     "https://federated.sdcc.bnl.gov/",
+     "https://github.com/maniaclab/flux_apps/blob/main/af/triton/helmRelease-patch.yaml",
+     "https://github.com/maniaclab/flux_apps/tree/main/af/triton",
+     "https://lcg-voms2.cern.ch:8443/voms/atlas/user/home.action",
+     "https://monitoring.sdcc.bnl.gov/",
+     "https://orcid.org/register",
+     "https://po.usatlas.bnl.gov/programoffice/ps.php",
+     "https://rucio.readthedocs.io/en/latest/man/rucio.html#add-rule",
+     "https://sdf.slac.stanford.edu/",
+     "https://www-internal.slac.stanford.edu/",
+     "https://www.sdcc.bnl.gov/",
+]

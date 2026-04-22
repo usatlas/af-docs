@@ -303,7 +303,7 @@ container from the docker hub and convert into a singularity image file (sif).
 
 Prior to use ATLAS_LOCAL_ROOT_BASE (ALRB), you need install CVMFS first. Please
 refer to
-[the CernVM-FS Client Quick Start](https://cernvm.cern.ch/portal/filesystem/quickstart)
+[the CernVM-FS Client Quick Start](https://cernvm.cern.ch/fs/)
 at CERN for CVMFS installation guide.
 
 Then define the command **setupATLAS** as follows:

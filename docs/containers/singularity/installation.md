@@ -72,7 +72,7 @@ following the instruction to install it.
 
 Once your distro has been downloaded and installed, you will be prompted to
 **create a new user account** together with its password to
-[initialize the new Linux distro](https://docs.microsoft.com/en-us/windows/wsl/initialize-distro).
+[initialize the new Linux distro](https://learn.microsoft.com/en-us/windows/wsl/build-custom-distro).
 
 ### Running Windows 10 build 19041 or higher or Windows 11
 

@@ -8,9 +8,9 @@ xAOD data.
 ## What information is in an xAOD file
 
 The
-[ATLAS Analysis Release](https://atlassoftwaredocs.web.cern.ch/ABtutorial/release_setup/)
+[ATLAS Analysis Release](https://atlas-software.docs.cern.ch/analysis/analysis_tutorial/AnalysisSWTutorial/release_setup/)
 provides a handy Python
-[checkxAOD.py](https://atlassoftwaredocs.web.cern.ch/ABtutorial/basic_xaod_content/)
+[checkxAOD.py](https://atlas-software.docs.cern.ch/analysis/analysis_tutorial/AnalysisSWTutorial/obj_xaod_content/)
 that we can use to learn the container types and container keys in an xAOD file.
 
 First, set up the environment for ATLAS Analysis

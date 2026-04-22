@@ -1,36 +1,32 @@
 # Access to CERN-EOS from UChicago
 
-/// warning | EOS access from worker nodes
+!!! warning "EOS access from worker nodes"
 
-`/eos` is only mounted on the interactive (`login`) nodes. To access from worker
-nodes (e.g. condor jobs), we recommend the use of `xrootd` such as:
+    `/eos` is only mounted on the interactive (`login`) nodes. To access from worker
+    nodes (e.g. condor jobs), we recommend the use of `xrootd` such as:
 
-```bash
-root://eosuser.cern.ch//eos/user/d/dschrute/file.txt
-```
+    ```bash
+    root://eosuser.cern.ch//eos/user/d/dschrute/file.txt
+    ```
 
-or via `xrdcp` inside your job:
+    or via `xrdcp` inside your job:
 
-```bash
-xrdcp root://eosuser.cern.ch//eos/user/d/dschrute/file.txt .
-xrdcp -r root://eosuser.cern.ch//eos/user/d/dschrute/many_files/ .
-```
+    ```bash
+    xrdcp root://eosuser.cern.ch//eos/user/d/dschrute/file.txt .
+    xrdcp -r root://eosuser.cern.ch//eos/user/d/dschrute/many_files/ .
+    ```
 
-as long as you
-[export your x509 proxy](./data_sharing.md#always-check-your-proxy-certificate)
-to your HTCondor jobs.
-
-///
+    as long as you
+    [export your x509 proxy](./data_sharing.md#always-check-your-proxy-certificate)
+    to your HTCondor jobs.
 
 The ways to list, write and read files on CERN EOS, documented
 [here](https://twiki.cern.ch/twiki/bin/view/AtlasComputing/ATLASStorageAtCERN#EOS_storage_system),
 still work at UChicago.
 
-/// note | setup-eos is deprecated
+!!! note "setup-eos is deprecated"
 
-`setup-eos` has been deprecated in favor of using `kinit`.
-
-///
+    `setup-eos` has been deprecated in favor of using `kinit`.
 
 On the Analysis Facility login servers, try the following:
 
@@ -74,11 +70,9 @@ cp /eos/user/d/dschrute/file.txt  $HOME/codingx/ # eg: /home/dschrute/codingx/
 You can obtain and cache a CERN Kerberos ticket (this is also required for the
 way of using ssh-tunnel below) by doing:
 
-/// warning | CERN.CH must be uppercase
+!!! warning "CERN.CH must be uppercase"
 
-Please notice that the domain CERN.CH must be in UPPERCASE.
-
-///
+    Please notice that the domain CERN.CH must be in UPPERCASE.
 
 ```bash
 kinit <name_at_CERN>@CERN.CH

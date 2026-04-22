@@ -79,9 +79,7 @@ through the BNL gateway.
 
 ## Getting help
 
-/// note | Need help?
+!!! note "Need help?"
 
-See our [Getting Help](../getting_help.md) page for support options and how to
-reach the ATLAS AF team.
-
-///
+    See our [Getting Help](../getting_help.md) page for support options and how to
+    reach the ATLAS AF team.

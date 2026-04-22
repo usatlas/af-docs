@@ -6,21 +6,19 @@ The Triton Inference Server is deployed as a Kubernetes cluster service within
 the UChicago Analysis Facility. This service provides high-performance AI model
 inference with automatic scaling capabilities.
 
-/// note | Key Information
+!!! note "Key Information"
 
-- **Access:** Internal to UChicago AF Kubernetes cluster only (not externally
-  exposed)
-- **Endpoint:** `triton-traefik.triton.svc.cluster.local:8001` (gRPC)
-- **Version:**
-  [Release 2.61.0](https://github.com/triton-inference-server/server/releases/tag/v2.61.0)
-  (NGC container 25.09)
-- **GPU Resources:** 1-3 pods, each pod allocated 1 GPU
-  ([see hardware specs](https://af.uchicago.edu/hardware))
-- **CPU/Memory:** Burstable (no minimum request, scales as needed)
-- **Autoscaling:** Managed by Horizontal Pod Autoscaler (HPA) based on average
-  queue time metrics
-
-///
+    - **Access:** Internal to UChicago AF Kubernetes cluster only (not externally
+      exposed)
+    - **Endpoint:** `triton-traefik.triton.svc.cluster.local:8001` (gRPC)
+    - **Version:**
+      [Release 2.61.0](https://github.com/triton-inference-server/server/releases/tag/v2.61.0)
+      (NGC container 25.09)
+    - **GPU Resources:** 1-3 pods, each pod allocated 1 GPU
+      ([see hardware specs](https://af.uchicago.edu/hardware))
+    - **CPU/Memory:** Burstable (no minimum request, scales as needed)
+    - **Autoscaling:** Managed by Horizontal Pod Autoscaler (HPA) based on average
+      queue time metrics
 
 The Triton service automatically scales the number of server instances based on
 workload demand, ensuring efficient resource utilization.

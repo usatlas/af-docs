@@ -18,16 +18,14 @@ Before you begin, ensure you have:
 
 ## Choose Your Username Wisely
 
-/// tip | Username Best Practices
+!!! tip "Username Best Practices"
 
-When choosing a UNIX username during signup, you should consider using the same
-username that you have at CERN. This will make certain tools (e.g. Rucio, EOS)
-simpler to set up. Otherwise, we recommend that you pick a username that is
-reflective of your full name, and that you should prefer brevity (e.g. John
-Smith -> `jsmith`). **We will not be able to easily change your username for you
-if you decide that you want something different later.**
-
-///
+    When choosing a UNIX username during signup, you should consider using the same
+    username that you have at CERN. This will make certain tools (e.g. Rucio, EOS)
+    simpler to set up. Otherwise, we recommend that you pick a username that is
+    reflective of your full name, and that you should prefer brevity (e.g. John
+    Smith -> `jsmith`). **We will not be able to easily change your username for you
+    if you decide that you want something different later.**
 
 ---
 
@@ -50,16 +48,14 @@ ssh-keygen -t ed25519
 We recommend modern elliptic curve key types, such as `ed25519` or `ecdsa`.
 These provide better security and performance than older key types.
 
-/// warning | Passphrase Recommended
+!!! warning | Passphrase Recommended
 
-We strongly recommend setting a passphrase on your private key. This way, if
-your private key is ever lost or compromised, an attacker would still need your
-passphrase in order to impersonate you.
+    We strongly recommend setting a passphrase on your private key. This way, if
+    your private key is ever lost or compromised, an attacker would still need your
+    passphrase in order to impersonate you.
 
-**Note**: If you use VS Code Remote SSH, be aware that passphrases can cause
-connection issues. See the [VS Code guide](../tools/vscode.md) for workarounds.
-
-///
+    **Note**: If you use VS Code Remote SSH, be aware that passphrases can cause
+    connection issues. See the [VS Code guide](../tools/vscode.md) for workarounds.
 
 ### Key File Locations
 
@@ -94,12 +90,10 @@ Upload your public key to your facility's user portal:
   [af.uchicago.edu](https://af.uchicago.edu/)
 - **SLAC**: Follow facility-specific instructions
 
-/// danger | Important: Protect Your Private Key!
+!!! danger "Important: Protect Your Private Key!"
 
-You must **only** upload the public key (.pub file)! Treat the private key as if
-it were your password. Never share it or upload it anywhere.
-
-///
+    You must **only** upload the public key (.pub file)! Treat the private key as if
+    it were your password. Never share it or upload it anywhere.
 
 ---
 
@@ -142,23 +136,21 @@ To avoid entering your passphrase repeatedly, add your key to the SSH agent:
 ssh-add ~/.ssh/id_ed25519
 ```
 
-/// tip | SSH Agent Error
+!!! tip "SSH Agent Error"
 
-If you get this error message:
+    If you get this error message:
 
-```
-Could not open a connection to your authentication agent.
-```
+    ```
+    Could not open a connection to your authentication agent.
+    ```
 
-You may need to start the SSH Agent first:
+    You may need to start the SSH Agent first:
 
-```sh
-eval "$(ssh-agent -s)"
-```
+    ```sh
+    eval "$(ssh-agent -s)"
+    ```
 
-Then try the `ssh-add` command again.
-
-///
+    Then try the `ssh-add` command again.
 
 ---
 
@@ -252,15 +244,13 @@ Host lxtunnel lxtunnel.cern.ch
 
 1. Replace `<CERN_USER>` with your CERN username (e.g., `jsmith`)
 
-/// tip | Create ControlMaster Directory
+!!! tip "Create ControlMaster Directory"
 
-For the lxtunnel configuration to work, create the ControlMaster directory:
+    For the lxtunnel configuration to work, create the ControlMaster directory:
 
-```sh
-mkdir -p ~/.ssh/controlmasters
-```
-
-///
+    ```sh
+    mkdir -p ~/.ssh/controlmasters
+    ```
 
 ### Kerberos Authentication Setup
 
@@ -290,16 +280,14 @@ To renew your ticket (typically valid for 24 hours):
 kinit -R
 ```
 
-/// note | Kerberos Troubleshooting
+!!! note "Kerberos Troubleshooting"
 
-For advanced Kerberos configuration, token sharing across machines, and
-troubleshooting, see the [FAQs and Tips](../faqs_tips.md) page, which covers:
+    For advanced Kerberos configuration, token sharing across machines, and
+    troubleshooting, see the [FAQs and Tips](../faqs_tips.md) page, which covers:
 
-- Sharing Kerberos tokens across multiple machines
-- Managing multiple Kerberos principals
-- Fixing common Kerberos issues
-
-///
+    - Sharing Kerberos tokens across multiple machines
+    - Managing multiple Kerberos principals
+    - Fixing common Kerberos issues
 
 For more detailed information about SSH at CERN, see the
 [CERN SSH FAQ](https://twiki.cern.ch/twiki/bin/view/LinuxSupport/SSHatCERNFAQ).

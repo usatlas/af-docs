@@ -1,7 +1,6 @@
 ---
 hide:
     - toc
-    - navigation
 ---
 
 # Getting Help
@@ -10,15 +9,12 @@ hide:
 
 ![Discourse Logo](images/discourse.png){ align=left width=110px }
 
-/// admonition | Need Help?<!-- prettier-ignore -->
-    type: question
+!!! question "Need Help?"
 
-For help with ATLAS software, using the facilities, or are generally stuck,
-visit our
-[:fontawesome-solid-comments: **ATLAS AF Discourse**](https://atlas-talk.sdcc.bnl.gov/)
-forum. We have members from the physics support team ready to assist you!
-
-///
+    For help with ATLAS software, using the facilities, or are generally stuck,
+    visit our
+    [:fontawesome-solid-comments: **ATLAS AF Discourse**](https://atlas-talk.sdcc.bnl.gov/)
+    forum. We have members from the physics support team ready to assist you!
 
 ---
 
@@ -52,13 +48,11 @@ contact the appropriate team below:
     :material-email: **Email:**
     [atlas-us-slac-acf@cern.ch](mailto:atlas-us-slac-acf@cern.ch)
 
-    /// note | This is a CERN e-group
+    !!! note "This is a CERN e-group"
 
-    Please
-    [join the e-group](https://e-groups.cern.ch/e-groups/Egroup.do?egroupName=atlas-us-slac-acf)
-    first.
-
-    ///
+          Please
+          [join the e-group](https://e-groups.cern.ch/e-groups/Egroup.do?egroupName=atlas-us-slac-acf)
+          first.
 
     :material-chat: **Chat:**
     [CERN Mattermost](https://mattermost.web.cern.ch/slac-testing/channels/town-square)

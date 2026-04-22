@@ -10,14 +10,12 @@ make the approval process smoother. Please enter your full name, your home
 institution's name, and your institutional email; account requests from services
 like Gmail, Outlook, iCloud, etc. won't be accepted.
 
-/// note | Not an ATLAS member yet?
+!!! note "Not an ATLAS member yet?"
 
-If you are not yet an ATLAS member, but are working with someone in ATLAS,
-please
-[contact the UChicago facility team](../getting_help.md#facility-specific-support)
-explaining who you are working with and why you need an account.
-
-///
+    If you are not yet an ATLAS member, but are working with someone in ATLAS,
+    please
+    [contact the UChicago facility team](../getting_help.md#facility-specific-support)
+    explaining who you are working with and why you need an account.
 
 ---
 
@@ -28,14 +26,12 @@ Once your account is accepted, you will need to generate and upload an SSH key.
 See our [SSH Access Guide](../computing/ssh_guide.md) for instructions on
 generating SSH keys.
 
-/// warning | UChicago Key Requirements
+!!! warning "UChicago Key Requirements"
 
-The UChicago Analysis Facility will **not** accept deprecated key types such as
-DSA or RSA with a SHA-1 signature, as these are generally considered insecure.
-Please use modern elliptic curve keys (`ed25519` or `ecdsa`) as recommended in
-the SSH guide.
-
-///
+    The UChicago Analysis Facility will **not** accept deprecated key types such as
+    DSA or RSA with a SHA-1 signature, as these are generally considered insecure.
+    Please use modern elliptic curve keys (`ed25519` or `ecdsa`) as recommended in
+    the SSH guide.
 
 ### Upload Your Public Key
 
@@ -50,12 +46,10 @@ You can view your public key with:
 cat ~/.ssh/id_ed25519.pub
 ```
 
-/// danger | Important: Protect Your Private Key!
+!!! danger "Important: Protect Your Private Key!"
 
-You must only upload the public key (.pub)! Treat the private key as if it were
-your password.
-
-///
+    You must only upload the public key (.pub)! Treat the private key as if it were
+    your password.
 
 ---
 

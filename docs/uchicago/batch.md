@@ -17,18 +17,16 @@ Before submitting jobs, review the following:
 For information about storage quotas and filesystem usage, see
 [Data Storage](storage.md).
 
-/// warning | $HOME quota
+!!! warning "$HOME quota"
 
-Your quota at $HOME is 100GB. Be careful not to exceed this quota because some
-issues may arise, for example not being able to login next time.
+    Your quota at $HOME is 100GB. Be careful not to exceed this quota because some
+    issues may arise, for example not being able to login next time.
 
-**Tips:**
+    **Tips:**
 
-- Use the command `du -sh` to know the actual size of your current directory
-- Check the table displayed at the start of your session, which indicates the
-  usage of your /home and /data directories
-
-///
+    - Use the command `du -sh` to know the actual size of your current directory
+    - Check the table displayed at the start of your session, which indicates the
+      usage of your /home and /data directories
 
 ## Quick start
 
@@ -84,17 +82,15 @@ Total for lincolnb: 1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0
 Total for all users: 1 jobs; 0 completed, 0 removed, 0 idle, 1 running, 0 held, 0 suspended
 ```
 
-/// warning | Do not use `watch condor_q`
+!!! warning "Do not use `watch condor_q`"
 
-Running `watch condor_q` polls the scheduler repeatedly and can overload it. Use
-`condor_watch_q` instead — it is an event-driven live view that is safe for
-continuous monitoring:
+    Running `watch condor_q` polls the scheduler repeatedly and can overload it. Use
+    `condor_watch_q` instead — it is an event-driven live view that is safe for
+    continuous monitoring:
 
-```sh
-condor_watch_q
-```
-
-///
+    ```sh
+    condor_watch_q
+    ```
 
 ## Job states
 
@@ -121,13 +117,11 @@ Each job should define three files in the submit file:
 | Output | `output`         | Stdout from your program (any print/display output)                                                                  |
 | Error  | `error`          | Stderr captured by the operating system                                                                              |
 
-/// tip | Always define all three files
+!!! tip "Always define all three files"
 
-Defining `log`, `output`, and `error` in every submit file makes debugging much
-easier. The log file is especially valuable for right-sizing resource requests
-and diagnosing why jobs were held or evicted.
-
-///
+    Defining `log`, `output`, and `error` in every submit file makes debugging much
+    easier. The log file is especially valuable for right-sizing resource requests
+    and diagnosing why jobs were held or evicted.
 
 ## Requesting resources
 
@@ -196,13 +190,11 @@ from your submit file and your jobs will be sent to the `long-queue`
 automatically, otherwise your job will be placed on hold until you remove it or
 release it (check HTCondor commands).
 
-/// tip | Use the short queue for short jobs
+!!! tip "Use the short queue for short jobs"
 
-Using the short queue for short jobs when possible is essential for the use of
-the available resources, specially to let the long queue available for long
-jobs.
-
-///
+    Using the short queue for short jobs when possible is essential for the use of
+    the available resources, specially to let the long queue available for long
+    jobs.
 
 ## Submitting multiple jobs
 
@@ -223,12 +215,10 @@ error      = job-$(ClusterId)-$(ProcId).err
 queue 3
 ```
 
-/// note
+!!! note
 
-`$(Cluster)` and `$(Process)` are aliases for `$(ClusterId)` and `$(ProcId)` and
-may appear in older documentation.
-
-///
+    `$(Cluster)` and `$(Process)` are aliases for `$(ClusterId)` and `$(ProcId)` and
+    may appear in older documentation.
 
 ### Queue statement variations
 
@@ -267,13 +257,11 @@ queue file,option from job_list.txt
 
 Then reference `$(file)` and `$(option)` in the submit file.
 
-/// warning | Avoid multiple queue statements
+!!! warning "Avoid multiple queue statements"
 
-Using multiple `queue` statements in a single submit file is not recommended and
-can cause unexpected behavior. Use `queue var from file` or
-`queue var in (list)` instead.
-
-///
+    Using multiple `queue` statements in a single submit file is not recommended and
+    can cause unexpected behavior. Use `queue var from file` or
+    `queue var in (list)` instead.
 
 **Repeat jobs with `$(Step)`:** Submit 10 jobs per input file:
 

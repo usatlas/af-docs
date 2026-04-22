@@ -36,12 +36,10 @@ The object store is available at the following URLs:
 
 ### Privacy
 
-/// warning | Low sensitivity data only
+!!! warning "Low sensitivity data only"
 
-Browsing/Listing of `/share` is disabled in order to provide a level of privacy
-that is suitable for sharing **low sensitivity data**.
-
-///
+    Browsing/Listing of `/share` is disabled in order to provide a level of privacy
+    that is suitable for sharing **low sensitivity data**.
 
 For example, if one copies a data file to:
 
@@ -52,13 +50,11 @@ the `random-string`. This is because `/share` is not searchable. As the owner,
 you should write down the random string and keep it secure. Anyone who know the
 random string can search for the content under it.
 
-/// danger | Important: Keep your random string secure
+!!! danger "Important: Keep your random string secure"
 
-If you lose the random string, you lose access to your data. Administrators
-won't be able to help you since there is no records of ownership in the object
-store. The data will eventually be purged after expiration.
-
-///
+    If you lose the random string, you lose access to your data. Administrators
+    won't be able to help you since there is no records of ownership in the object
+    store. The data will eventually be purged after expiration.
 
 ### Upload and Download
 
@@ -84,12 +80,10 @@ curl is available everywhere. To use curl, follow these steps:
     alias mycurl="curl -E /tmp/x509up_u$(id -u) --cacert /tmp/x509up_u$(id -u) --capath /etc/grid-security/certificates"
     ```
 
-    /// note
+    !!! note
 
-    You may need to adjust the proxy location and CA directory location
-    (/etc/grid-security/certificates) in your environment.
-
-    ///
+        You may need to adjust the proxy location and CA directory location
+        (/etc/grid-security/certificates) in your environment.
 
 2.  Upload:
 
@@ -138,12 +132,10 @@ have the gfal2 tools in your PATH.
     gfal-copy -f https://cern.ch//SCRATCHDISK/myfile.dat https://sdf-dtn10.slac.stanford.edu:2094/share/random-string/myfile.dat
     ```
 
-/// tip
+!!! tip
 
-Gfal2 tools work with both https and root protocols. In the last example, the
-source and destination can use different protocols.
-
-///
+    Gfal2 tools work with both https and root protocols. In the last example, the
+    source and destination can use different protocols.
 
 #### Use xrootd tools to upload/download/delete
 
@@ -176,11 +168,9 @@ port number.
     xrdcp -f root://cern.ch//SCRATCHDISK/myfile.dat root://sdf-dtn10.slac.stanford.edu:2094//share/random-string/myfile.dat /tmp/myfile.dat
     ```
 
-/// note
+!!! note
 
-With additional setting, xrdcp also works with the https protocol.
-
-///
+    With additional setting, xrdcp also works with the https protocol.
 
 #### Use a web browser
 

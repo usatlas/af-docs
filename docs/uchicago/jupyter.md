@@ -93,12 +93,10 @@ multi-environment support, see the [pixi](#pixi) section below.
 - **AB-dev** - Based on AnalysisBase but with cutting edge uproot, dask, awkward
   arrays, etc.
 
-/// note | Other Images
+!!! note "Other Images"
 
-Additional images may be available in the dropdown menu. Contact the facility
-team if you need a specific software environment not provided by these images.
-
-///
+    Additional images may be available in the dropdown menu. Contact the facility
+    team if you need a specific software environment not provided by these images.
 
 ## pixi
 

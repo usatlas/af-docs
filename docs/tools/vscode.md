@@ -66,12 +66,10 @@ machine, you still need:
 You can grab the CLI through a
 [standalone install](https://code.visualstudio.com/#alt-downloads).
 
-/// note
+!!! note
 
-Some facilities may have the VSCode CLI pre-installed. Check your
-facility-specific guide for details.
-
-///
+    Some facilities may have the VSCode CLI pre-installed. Check your
+    facility-specific guide for details.
 
 Create a secure tunnel with the tunnel command:
 
@@ -174,20 +172,18 @@ To close the connection when you finish editing files on the remote host:
 
 ## Important: Background Jobs Continue Running
 
-/// danger | Closing VS Code Does NOT Terminate Jobs
+!!! danger "Closing VS Code Does NOT Terminate Jobs"
 
-**Critical**: Closing VS Code or disconnecting from an SSH session does NOT
-terminate jobs running on the remote machine. This includes:
+    **Critical**: Closing VS Code or disconnecting from an SSH session does NOT
+    terminate jobs running on the remote machine. This includes:
 
-- Jupyter notebook kernels
-- Running scripts or processes
-- Background jobs
-- Interactive programs
+    - Jupyter notebook kernels
+    - Running scripts or processes
+    - Background jobs
+    - Interactive programs
 
-**You must explicitly terminate processes** using commands like `kill`, `pkill`,
-or by using proper termination methods within your programs.
-
-///
+    **You must explicitly terminate processes** using commands like `kill`, `pkill`,
+    or by using proper termination methods within your programs.
 
 ### Common Misconceptions
 

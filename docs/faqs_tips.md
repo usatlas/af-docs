@@ -164,14 +164,11 @@ $ kill %1
 ```
 
 <!-- prettier-ignore -->
-/// admonition | Suspended Processes Still Consume Resources<!-- prettier-ignore -->
-    type: warning
+!!! warning "Suspended Processes Still Consume Resources"
 
-Suspended processes remain in memory and can hold locks on files or resources.
-Always properly terminate processes you no longer need using `kill` or
-<kbd>Control</kbd>+<kbd>C</kbd>.
-
-///
+    Suspended processes remain in memory and can hold locks on files or resources.
+    Always properly terminate processes you no longer need using `kill` or
+    <kbd>Control</kbd>+<kbd>C</kbd>.
 
 ### Session Management with screen and tmux
 
@@ -266,20 +263,17 @@ tmux kill-session -t my_analysis
 ```
 
 <!-- prettier-ignore -->
-/// admonition | Don't Just Close Your SSH Connection<!-- prettier-ignore -->
-    type: danger
+!!! danger "Don't Just Close Your SSH Connection"
 
-**Never** simply close your SSH connection or terminal window if you have
-important processes running. Always either:
+    **Never** simply close your SSH connection or terminal window if you have
+    important processes running. Always either:
 
-1. Use screen/tmux and properly detach
-2. Terminate your processes first with <kbd>Control</kbd>+<kbd>C</kbd> or `kill`
-3. Ensure processes are designed to run as background daemons
+    1. Use screen/tmux and properly detach
+    2. Terminate your processes first with <kbd>Control</kbd>+<kbd>C</kbd> or `kill`
+    3. Ensure processes are designed to run as background daemons
 
-Closing your connection without detaching from screen/tmux can cause session
-corruption or loss of work.
-
-///
+    Closing your connection without detaching from screen/tmux can cause session
+    corruption or loss of work.
 
 ### Environment Variables and Shell Configuration
 
@@ -345,16 +339,13 @@ fi
 This ensures your interactive shell settings are loaded for login shells too.
 
 <!-- prettier-ignore -->
-/// admonition | Testing Configuration Changes<!-- prettier-ignore -->
-    type: tip
+!!! tip "Testing Configuration Changes"
 
-After editing configuration files, either:
+    After editing configuration files, either:
 
-- Start a new shell: `bash` or `zsh`
-- Source the file: `source ~/.bashrc` or `. ~/.bashrc`
-- Logout and login again
-
-///
+    - Start a new shell: `bash` or `zsh`
+    - Source the file: `source ~/.bashrc` or `. ~/.bashrc`
+    - Logout and login again
 
 #### Modifying Your PATH
 
@@ -446,17 +437,17 @@ pkill -f my_script.py
 pkill -u $USER -f "jupyter"
 ```
 
-/// admonition | Be Careful with pkill<!-- prettier-ignore -->
-    type: warning
+!!! warning "Be Careful with pkill"
 
-`pkill` can terminate multiple processes at once. Always double-check what
-you're killing:
+    `pkill` can terminate multiple processes at once. Always double-check what
+    you're killing:
 
-```sh
-# First check what would be killed:
-pgrep -u $USER -f "pattern"
-# Then kill:
-pkill -u $USER -f "pattern"
+    ```sh
+    # First check what would be killed:
+    pgrep -u $USER -f "pattern"
+    # Then kill:
+    pkill -u $USER -f "pattern"
+
 ```
 
-///
+```

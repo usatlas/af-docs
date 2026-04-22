@@ -13,12 +13,10 @@ kernel that is running on the University of Chicago Analysis Facility (UC AF).
 This allows you to work on your Jupyter notebooks using VS Code while utilizing
 the computational resources of UC AF.
 
-/// note
+!!! note
 
-Make sure your JupyterLab instance is running and remains active while you are
-using VS Code to connect.
-
-///
+    Make sure your JupyterLab instance is running and remains active while you are
+    using VS Code to connect.
 
 ### Steps
 
@@ -54,9 +52,7 @@ using VS Code to connect.
 
 ## Getting help
 
-/// note | Need help?
+!!! note "Need help?"
 
-See our [Getting Help](../getting_help.md) page for support options and how to
-reach the ATLAS AF team.
-
-///
+    See our [Getting Help](../getting_help.md) page for support options and how to
+    reach the ATLAS AF team.

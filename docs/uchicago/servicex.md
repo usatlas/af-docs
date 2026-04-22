@@ -34,7 +34,7 @@ downloaded from your profile page:
 ![ServiceX profile](../images/servicex-profile.png)
 
 From the IRIS-HEP analysis grand challenge, there was an
-[example analysis using ServiceX and Coffea](https://github.com/iris-hep/analysis-grand-challenge/blob/main/workshops/agctools2021/HZZ_analysis_pipeline/HZZ_analysis_pipeline.ipynb).
+[example analysis using ServiceX and Coffea](https://github.com/iris-hep/analysis-grand-challenge/blob/main/analyses/atlas-open-data-hzz/HZZ_analysis_pipeline.ipynb).
 
 ## More Examples
 
