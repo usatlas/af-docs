@@ -1,10 +1,11 @@
-# AI Tools for USATLAS Analysis
+# AI tools for USATLAS analysis
 
-US ATLAS provides a [marketplace](https://github.com/usatlas/marketplace) of
-plugins for AI coding assistants. The plugins give Claude Code, Cursor, and
-Codex contextual knowledge about ATLAS analysis software, analysis facilities,
-statistics tools, and the Scikit-HEP ecosystem — reducing hallucinations and
-surfacing the right tool for each task.
+US ATLAS maintains a [marketplace](https://github.com/usatlas/marketplace) of
+plugins for AI coding assistants. The plugins load ATLAS-specific context into
+Claude Code, Cursor, and Codex: what tools exist, how they fit together, and
+when to use each one. In practice this means the assistant already knows that
+ATLAS NTuples use MeV, how to write a pyhf workspace, and how to find datasets
+on the grid, so you spend less time correcting it.
 
 ## Installation
 
@@ -47,27 +48,27 @@ Skills for working at each USATLAS Analysis Facility.
 | ------------- | ---------------------------------------------------------------------------------------------------- |
 | `uchicago-af` | HTCondor batch jobs, JupyterLab, XCache, Rucio, ServiceX, Coffea-Casa, and Triton at af.uchicago.edu |
 
-BNL and SLAC facility skills are planned.
+BNL and SLAC facility skills are in progress.
 
 ---
 
 ### `atlas`
 
-Full ATLAS analysis plugin covering the workflow from raw data to publication.
-Includes five AI subagents and 25 skills.
+The main ATLAS analysis plugin. Five subagents and 25 skills, covering
+everything from dataset discovery to publication-ready statistical fits.
 
-**Subagents** engage automatically when their domain comes up in conversation,
-or can be invoked explicitly:
+The subagents activate when their domain comes up, or you can invoke them
+directly:
 
-| Subagent                   | What it does                                                                                                                             |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `atlas-analysis-architect` | Designs end-to-end analysis pipelines and produces a structured analysis specification                                                   |
-| `atlas-analysis-coder`     | Writes Python analysis code (uproot, ServiceX, coffea, hist) following ATLAS conventions                                                 |
-| `atlas-docs-expert`        | Answers ATLAS software questions; fetches authoritative content from [atlas-software.docs.cern.ch](https://atlas-software.docs.cern.ch/) |
-| `atlas-stats-expert`       | Designs statistical models: pyhf/cabinetry workspaces, TRExFitter configs, CLs limits                                                    |
-| `atlas-data-explorer`      | Discovers datasets and replicas via the Rucio, AMI, and ATLAS Open Data MCP servers                                                      |
+| Subagent                   | What it does                                                                                                       |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `atlas-analysis-architect` | Designs analysis pipelines; produces a structured specification                                                    |
+| `atlas-analysis-coder`     | Writes Python analysis code (uproot, ServiceX, coffea, hist) following ATLAS conventions                           |
+| `atlas-docs-expert`        | Answers ATLAS software questions, pulling from [atlas-software.docs.cern.ch](https://atlas-software.docs.cern.ch/) |
+| `atlas-stats-expert`       | Builds statistical models: pyhf/cabinetry workspaces, TRExFitter configs, CLs limits                               |
+| `atlas-data-explorer`      | Finds datasets and replicas via the Rucio, AMI, and ATLAS Open Data MCP servers                                    |
 
-**Skills by category:**
+Skills by category:
 
 | Category    | Skills                                                                            |
 | ----------- | --------------------------------------------------------------------------------- |
@@ -83,7 +84,7 @@ or can be invoked explicitly:
 
 ### `hep-python-tools`
 
-Generic Python tooling for HEP workflows.
+Two skills for writing self-contained Python scripts and CLIs.
 
 | Skill               | Description                                                                         |
 | ------------------- | ----------------------------------------------------------------------------------- |
@@ -92,36 +93,35 @@ Generic Python tooling for HEP workflows.
 
 ---
 
-## MCP Servers
+## MCP servers
 
 The `atlas` plugin configures three
-[Model Context Protocol](https://modelcontextprotocol.io/) servers that give AI
-assistants live access to ATLAS data catalogs. These activate automatically when
-the `atlas` plugin is installed and the servers are running.
+[Model Context Protocol](https://modelcontextprotocol.io/) servers. Start them
+alongside your assistant session and it can query live ATLAS catalogs rather
+than rely on training data.
 
 ### Rucio
 
-Provides dataset and file replica discovery.
+Dataset and file replica discovery.
 
 ```bash
-# Launch (read-only)
 pixi exec rucio-mcp serve --read-only
 ```
 
-**Required environment variables:**
+`RUCIO_ACCOUNT` has no default. Set it before launching:
 
 ```bash
-export RUCIO_ACCOUNT=yourusername   # your CERN/grid username — no default
+export RUCIO_ACCOUNT=yourusername   # your CERN/grid username
 export RUCIO_AUTH_TYPE=x509_proxy   # or "oidc" or "userpass"
-voms-proxy-init --voms atlas        # obtain a valid proxy first
+voms-proxy-init --voms atlas
 ```
 
 See the [rucio-mcp documentation](https://rucio-mcp.readthedocs.io/en/latest/)
-for full setup and authentication options.
+for authentication options.
 
 ### AMI
 
-Provides AMI metadata: dataset tags, cross-sections, generator parameters.
+Dataset tags, cross-sections, and generator parameters from AMI.
 
 ```bash
 pixi exec ami-mcp serve
@@ -131,7 +131,7 @@ See the [ami-mcp documentation](https://ami-mcp.readthedocs.io/en/latest/).
 
 ### ATLAS Open Data
 
-Provides the ATLAS Open Data catalog for educational and public datasets.
+The ATLAS Open Data catalog, for educational and public datasets.
 
 ```bash
 uvx atlasopenmagic-mcp serve
