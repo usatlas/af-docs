@@ -5,9 +5,9 @@
 The primary mode of analysis with coffea-casa is
 [coffea](https://coffea-hep.readthedocs.io/en/latest/). Coffea provides plenty
 of examples to users in its
-[documentation](https://coffea-hep.readthedocs.io/en/latest/examples.html) A good
-starting point may be
-[this tutorial](https://github.com/CoffeaTeam/coffea-casa-tutorials/blob/master/analyses/thq/analysis_tutorial.ipynb)
+[documentation](https://coffea-hep.readthedocs.io/en/latest/examples.html) A
+good starting point may be
+[this tutorial](https://github.com/CoffeaTeam/coffea-casa-tutorials/blob/master/analyses/the/analysis_tutorial.ipynb)
 on columnar analysis in coffea.
 
 Knowledge of [Python](https://docs.python.org/3/tutorial/) is also assumed.
