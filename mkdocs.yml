@@ -133,10 +133,12 @@ nav:
               - Uproot Variable Conversion: jupyter/examples/convert_specific_variables.py.txt
       - ServiceX:
           - UChicago: uchicago/servicex.md
-      - AI Inference:
-          - Triton (UChicago):
-              - User Guide: uchicago/triton.md
-              - Deployment Notes: uchicago/triton_deployment.md
+      - AI:
+          - Overview: ai.md
+          - Inference:
+              - Triton (UChicago):
+                  - User Guide: uchicago/triton.md
+                  - Deployment Notes: uchicago/triton_deployment.md
       - Development Tools:
           - VSCode:
               - Overview: tools/vscode.md
