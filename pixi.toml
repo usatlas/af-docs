@@ -11,6 +11,7 @@ pre-commit = ">=4.5.1,<5"
 zensical = "*"
 lychee = "*"
 pydocstyle = "*"
+beautifulsoup4 = ">=4.14.3,<5"
 
 [tasks]
 build = { cmd = "zensical build", description = "Build documentation (static)", inputs = ["src/", "docs/", "zensical.toml"], outputs = ["site"] }
