@@ -1,9 +1,9 @@
 # US ATLAS Analysis Facilities Documentation
 
-> [!CAUTION] US ATLAS documents and code samples hosted in this repository are
-> visible to the general public. Please do not put personal identifiable
-> information, usernames and passwords, or methods to access restricted US ATLAS
-> and ATLAS (international) resources in this area.
+<!-- prettier-ignore-start -->
+> [!CAUTION]
+> US ATLAS documents and code samples hosted in this repository are visible to the general public. Please do not put personal identifiable information, usernames and passwords, or methods to access restricted US ATLAS and ATLAS (international) resources in this area.
+<!-- prettier-ignore-end -->
 
 US ATLAS hosts three shared Tier 3 computing spaces at BNL, SLAC, and UChicago,
 also known as Analysis Facilities (AF). These three facilities are available to
