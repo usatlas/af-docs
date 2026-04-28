@@ -196,6 +196,17 @@ release it (check HTCondor commands).
     the available resources, specially to let the long queue available for long
     jobs.
 
+### Submitting to other site queues
+
+Jobs can be flocked out to multiple compute sites. This generally can be
+controlled or configured by an additional flag in the job submit file. We cannot
+guarantee that some mounts like `/home` and `/data` will be accessible to nodes
+in other queues, see notes in the below table.
+
+| Flag               | Pool                          | Notes                                                                                        |
+| ------------------ | ----------------------------- | -------------------------------------------------------------------------------------------- |
+| `+ALLOW_MWT2=True` | MidWest Tier-2 Overflow queue | `/home` and `/data` are hot-mounted through `autofs` when accessed, 6GB RAM per core or less |
+
 ## Submitting multiple jobs
 
 HTCondor can submit many independent jobs from a single submit file.
