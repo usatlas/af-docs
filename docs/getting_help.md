@@ -41,6 +41,13 @@ contact the appropriate team below:
     :material-email: **Email:**
     [atlas-us-chicago-tier3-admins@cern.ch](mailto:atlas-us-chicago-tier3-admins@cern.ch)
 
+    Please
+    [join the e-group](https://e-groups.cern.ch/e-groups/Egroup.do?egroupName=atlas-us-chicago-tier3-admins)
+    first.
+
+    :simple-mattermost: **Chat:**
+    [CERN Mattermost](https://mattermost.web.cern.ch/signup_user_complete/?id=dmzhp4bq5in18fx9gpznsepmph&md=link&sbr=su)
+
 - :material-chip:{ .lg .middle } **SLAC Analysis Facility**
 
     ***
@@ -52,7 +59,7 @@ contact the appropriate team below:
     [join the e-group](https://e-groups.cern.ch/e-groups/Egroup.do?egroupName=atlas-us-slac-acf)
     first.
 
-    :material-chat: **Chat:**
+    :simple-mattermost: **Chat:**
     [CERN Mattermost](https://mattermost.web.cern.ch/slac-testing/channels/town-square)
 
 </div>
