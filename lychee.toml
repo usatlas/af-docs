@@ -17,3 +17,4 @@ exclude = [
 ]
 
 insecure = true
+timeout = 60
