@@ -15,6 +15,8 @@ exclude = [
     "https://www-internal.slac.stanford.edu/",
     "https://www.sdcc.bnl.gov/",
     "https://tipsmake.com/install-centos-on-windows-10-wsl", # timeout
+    "https://www.npmjs.com/", # 403
+    "https://.*.servicex.af.uchicago.edu/", # 503
 ]
 
 insecure = true
