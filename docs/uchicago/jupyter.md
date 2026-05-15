@@ -505,17 +505,27 @@ reconnect immediately.
 The portal gives each notebook its own subdomain plus a token embedded in the
 URL. There is **no separate token to mint** — the URL token _is_ the credential.
 
-**Step 1 — copy the token from your notebook URL.** After launch you land on
-`https://<notebook_id>.<af-domain>/?token=<token>`. Copy the `<token>` value.
+**Step 1 — get your notebook's share link with token.** In JupyterLab, click the
+**Share** icon in the top-right toolbar. A "Share Jupyter Server Link" popup
+appears — check **Include token in URL** and copy the full link. It will look
+like `https://<notebook_id>.<af-domain>/?token=<token>`.
 
 **Step 2 — configure your client.**
 
-For Claude Code:
+For Claude Code, pass the token as a query parameter — this is the simplest
+approach and does not require a separate `Authorization` header:
+
+```bash
+claude mcp add jupyter --transport http \
+  "https://<notebook_id>.<af-domain>/mcp?token=<token>"
+```
+
+Alternatively, pass it as a Bearer header:
 
 ```bash
 claude mcp add jupyter --transport http \
   https://<notebook_id>.<af-domain>/mcp \
-  --header "Authorization: Bearer <token-from-URL>"
+  --header "Authorization: Bearer <token>"
 ```
 
 The `mcp-remote` JSON form mirrors the JupyterHub example above; substitute the
