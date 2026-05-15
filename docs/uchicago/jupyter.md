@@ -442,14 +442,14 @@ the assistant can list, read, and execute cells in your live notebook session.
 
 ### Security & lifetime model (read this first)
 
-The MCP server **runs inside your singleuser pod** — there is no shared
-service to log into. That has two practical consequences depending on which
-JupyterLab you launched:
+The MCP server **runs inside your singleuser pod** — there is no shared service
+to log into. That has two practical consequences depending on which JupyterLab
+you launched:
 
-| Surface | Endpoint | Token | Token lifetime | Endpoint lifetime |
-|---|---|---|---|---|
-| `https://jupyterhub.af.uchicago.edu` (BinderHub-launched) | `/user/<name>/mcp` | JupyterHub API token, scope **`access:servers`** (or the tighter `access:servers!user=<name>`) | Durable — mint once at `/hub/token`, reuse across spawns | Only while your server is running; if culled, the endpoint 404s until you spawn again, then the **same** token reconnects |
-| `https://af.uchicago.edu/jupyterlab` (af-portal-launched) | `<notebook_id>.<af-domain>/mcp` | The `?token=…` from your notebook URL — this is the singleuser server's `IdentityProvider` token | Generated per pod; **gone forever** when the pod is reaped | Same as token lifetime |
+| Surface                                                   | Endpoint                        | Token                                                                                            | Token lifetime                                             | Endpoint lifetime                                                                                                         |
+| --------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `https://jupyterhub.af.uchicago.edu` (BinderHub-launched) | `/user/<name>/mcp`              | JupyterHub API token, scope **`access:servers`** (or the tighter `access:servers!user=<name>`)   | Durable — mint once at `/hub/token`, reuse across spawns   | Only while your server is running; if culled, the endpoint 404s until you spawn again, then the **same** token reconnects |
+| `https://af.uchicago.edu/jupyterlab` (af-portal-launched) | `<notebook_id>.<af-domain>/mcp` | The `?token=…` from your notebook URL — this is the singleuser server's `IdentityProvider` token | Generated per pod; **gone forever** when the pod is reaped | Same as token lifetime                                                                                                    |
 
 Both designs are intentional: the credential is scoped to your identity, the
 endpoint is scoped to one running compute. There is **no** independent,
@@ -479,32 +479,31 @@ For Cursor, Continue, or any client using `mcp-remote`:
 
 ```json
 {
-  "mcpServers": {
-    "jupyter": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://jupyterhub.af.uchicago.edu/user/<your-username>/mcp",
-        "--header",
-        "Authorization:${JUPYTERHUB_AUTH_HEADER}"
-      ],
-      "env": {
-        "JUPYTERHUB_AUTH_HEADER": "Bearer <your-api-token>"
-      }
+    "mcpServers": {
+        "jupyter": {
+            "command": "npx",
+            "args": [
+                "mcp-remote",
+                "https://jupyterhub.af.uchicago.edu/user/<your-username>/mcp",
+                "--header",
+                "Authorization:${JUPYTERHUB_AUTH_HEADER}"
+            ],
+            "env": {
+                "JUPYTERHUB_AUTH_HEADER": "Bearer <your-api-token>"
+            }
+        }
     }
-  }
 }
 ```
 
-**Step 3 — make sure your server is running.** If MCP returns 404, your pod
-has been culled. Open your JupyterHub home page to respawn; the same token
-will reconnect immediately.
+**Step 3 — make sure your server is running.** If MCP returns 404, your pod has
+been culled. Open your JupyterHub home page to respawn; the same token will
+reconnect immediately.
 
 ### From `https://af.uchicago.edu/jupyterlab` (af-portal-launched notebooks)
 
 The portal gives each notebook its own subdomain plus a token embedded in the
-URL. There is **no separate token to mint** — the URL token *is* the
-credential.
+URL. There is **no separate token to mint** — the URL token _is_ the credential.
 
 **Step 1 — copy the token from your notebook URL.** After launch you land on
 `https://<notebook_id>.<af-domain>/?token=<token>`. Copy the `<token>` value.
@@ -519,17 +518,17 @@ claude mcp add jupyter --transport http \
   --header "Authorization: Bearer <token-from-URL>"
 ```
 
-The `mcp-remote` JSON form mirrors the JupyterHub example above; substitute
-the host and token.
+The `mcp-remote` JSON form mirrors the JupyterHub example above; substitute the
+host and token.
 
-**Important:** this token is bound to one pod's lifetime. When your notebook
-is reaped (TTL or explicit shutdown), the token is invalidated and the
-subdomain stops responding. Each new spawn produces a new `<notebook_id>` and
-a new token; update your client config accordingly.
+**Important:** this token is bound to one pod's lifetime. When your notebook is
+reaped (TTL or explicit shutdown), the token is invalidated and the subdomain
+stops responding. Each new spawn produces a new `<notebook_id>` and a new token;
+update your client config accordingly.
 
 ### What the MCP server can do
 
 See the upstream
 [Jupyter MCP Server documentation](https://jupyter-mcp-server.datalayer.tech/)
-for the current tool surface (cell listing, cell read / insert / execute,
-kernel control, document state).
+for the current tool surface (cell listing, cell read / insert / execute, kernel
+control, document state).
