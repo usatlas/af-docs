@@ -475,7 +475,8 @@ claude mcp add jupyter --transport http \
   --header "Authorization: Bearer <your-api-token>"
 ```
 
-For Cursor, Continue, or any client using `mcp-remote`:
+For Claude app, Cursor, Continue, or any client configured via `claude_desktop_config.json` /
+`mcp_servers.json`:
 
 ```json
 {
@@ -483,6 +484,7 @@ For Cursor, Continue, or any client using `mcp-remote`:
         "jupyter": {
             "command": "npx",
             "args": [
+                "-y",
                 "mcp-remote",
                 "https://jupyterhub.af.uchicago.edu/user/<your-username>/mcp",
                 "--header",
@@ -529,8 +531,23 @@ claude mcp add jupyter --transport http \
   --header "Authorization: Bearer <token>"
 ```
 
-The `mcp-remote` JSON form mirrors the JupyterHub example above; substitute the
-host and token.
+For Claude app, Cursor, Continue, or any client configured via `claude_desktop_config.json` /
+`mcp_servers.json`, pass the token directly in the URL — no extra environment variable needed:
+
+```json
+{
+    "mcpServers": {
+        "jupyter": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "mcp-remote",
+                "https://<notebook_id>.<af-domain>/mcp?token=<token>"
+            ]
+        }
+    }
+}
+```
 
 **Important:** this token is bound to one pod's lifetime. When your notebook is
 reaped (TTL or explicit shutdown), the token is invalidated and the subdomain
