@@ -475,8 +475,8 @@ claude mcp add jupyter --transport http \
   --header "Authorization: Bearer <your-api-token>"
 ```
 
-For Claude app, Cursor, Continue, or any client configured via `claude_desktop_config.json` /
-`mcp_servers.json`:
+For Claude app, Cursor, Continue, or any client configured via
+`claude_desktop_config.json` / `mcp_servers.json`:
 
 ```json
 {
@@ -508,8 +508,8 @@ The portal gives each notebook its own subdomain plus a token embedded in the
 URL. There is **no separate token to mint** — the URL token _is_ the credential.
 
 **Step 1 — get your token.** In JupyterLab, click the **Share** icon in the
-top-right toolbar. A "Share Jupyter Server Link" popup appears — check
-**Include token in URL** and copy the full link. It will look like
+top-right toolbar. A "Share Jupyter Server Link" popup appears — check **Include
+token in URL** and copy the full link. It will look like
 `https://<notebook_id>.<af-domain>/lab/tree/...?token=<token>`. You only need
 the `<token>` value (everything after `?token=`).
 
@@ -531,8 +531,9 @@ claude mcp add jupyter --transport http \
   --header "Authorization: Bearer <token>"
 ```
 
-For Claude app, Cursor, Continue, or any client configured via `claude_desktop_config.json` /
-`mcp_servers.json`, pass the token directly in the URL — no extra environment variable needed:
+For Claude app, Cursor, Continue, or any client configured via
+`claude_desktop_config.json` / `mcp_servers.json`, pass the token directly in
+the URL — no extra environment variable needed:
 
 ```json
 {
