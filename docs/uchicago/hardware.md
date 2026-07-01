@@ -11,7 +11,7 @@
 
 | Queues | Capacity (cores) | Walltime Limit | Notes                                                                                    |
 | ------ | ---------------- | -------------- | ---------------------------------------------------------------------------------------- |
-| long   | 1520             | 72 Hours       | The long queue jobs run on the hyperconverged nodes                                      |
+| long   | 1520             | 168 Hours      | The long queue jobs run on the hyperconverged nodes                                      |
 | short  | 1280             | 4 Hours        | The short queue jobs can run on both the fast compute nodes and the hyperconverged nodes |
 
 ## Storage Spaces
