@@ -17,6 +17,7 @@ exclude = [
     "https://tipsmake.com/install-centos-on-windows-10-wsl", # timeout
     "https://www.npmjs.com/", # 403
     "https://.*.servicex.af.uchicago.edu/", # 503
+    "https://twiki.cern.ch/", # Timeouts...
 ]
 
 insecure = true
