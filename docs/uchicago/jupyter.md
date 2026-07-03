@@ -448,7 +448,7 @@ you launched:
 
 | Surface                                                   | Endpoint                        | Token                                                                                            | Token lifetime                                             | Endpoint lifetime                                                                                                         |
 | --------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `https://jupyterhub.af.uchicago.edu` (BinderHub-launched) | `/user/<name>/mcp`              | JupyterHub API token, scope **`access:servers`** (or the tighter `access:servers!user=<name>`)   | Durable — mint once at `/hub/token`, reuse across spawns   | Only while your server is running; if culled, the endpoint 404s until you spawn again, then the **same** token reconnects |
+| `https://jupyterhub.af.uchicago.edu` (BinderHub-launched) | `/user/<name>/proxy/3001/mcp`   | JupyterHub API token, scope **`access:servers`** (or the tighter `access:servers!user=<name>`)   | Durable — mint once at `/hub/token`, reuse across spawns   | Only while your server is running; if culled, the endpoint 404s until you spawn again, then the **same** token reconnects |
 | `https://af.uchicago.edu/jupyterlab` (af-portal-launched) | `<notebook_id>.<af-domain>/mcp` | The `?token=…` from your notebook URL — this is the singleuser server's `IdentityProvider` token | Generated per pod; **gone forever** when the pod is reaped | Same as token lifetime                                                                                                    |
 
 Both designs are intentional: the credential is scoped to your identity, the
@@ -471,7 +471,7 @@ For Claude Code:
 
 ```bash
 claude mcp add jupyter --transport http \
-  https://jupyterhub.af.uchicago.edu/user/<your-username>/mcp \
+  https://jupyterhub.af.uchicago.edu/user/<your-username>/proxy/3001/mcp \
   --header "Authorization: Bearer <your-api-token>"
 ```
 
@@ -486,7 +486,7 @@ For Claude app, Cursor, Continue, or any client configured via
             "args": [
                 "-y",
                 "mcp-remote",
-                "https://jupyterhub.af.uchicago.edu/user/<your-username>/mcp",
+                "https://jupyterhub.af.uchicago.edu/user/<your-username>/proxy/3001/mcp",
                 "--header",
                 "Authorization:${JUPYTERHUB_AUTH_HEADER}"
             ],
