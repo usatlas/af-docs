@@ -153,3 +153,108 @@ See
 [Connecting an MCP client to your notebook](uchicago/jupyter.md#connecting-an-mcp-client-to-your-notebook)
 for the full setup, including the difference in token lifetime between the two
 launch surfaces.
+
+---
+
+## Example: Claude Code with NRP models + Jupyter MCP
+
+Claude Code does not have to talk to Anthropic's API. You can point it at the
+[National Research Platform](https://nrp.ai/) (NRP) LLM endpoint to run
+open-weight models such as `qwen3`, and — in the same session — attach the
+[Jupyter MCP server](#jupyter-your-running-notebook-at-uchicago) so the model
+can drive a live notebook. This walkthrough wires both together against a
+BinderHub-launched notebook.
+
+You need three things:
+
+1. Claude Code, configured to use NRP's LLM endpoint
+2. An NRP account with an LLM API token
+3. A BinderHub repo with
+   [`jupyter-server-proxy`](https://github.com/jupyterhub/jupyter-server-proxy)
+   and `jupyter-server-mcp` installed (the MCP server exposes the notebook on
+   port 3001)
+
+### Step 1 — get an NRP LLM token
+
+Create an account at [nrp.ai](https://nrp.ai/), then mint an LLM token at
+[https://nrp.ai/llmtoken/](https://nrp.ai/llmtoken/). This token is your
+`ANTHROPIC_AUTH_TOKEN` in the steps below.
+
+### Step 2 — configure Claude Code
+
+Edit your Claude Code config (`~/.claude.json` or equivalent) to route requests
+to NRP and register the Jupyter MCP server:
+
+```json
+{
+    "env": {
+        "ANTHROPIC_BASE_URL": "https://ellm.nrp-nautilus.io/anthropic",
+        "ANTHROPIC_API_KEY": "YOUR_NRP_TOKEN_HERE",
+        "ANTHROPIC_DEFAULT_OPUS_MODEL": "qwen3",
+        "ANTHROPIC_DEFAULT_SONNET_MODEL": "qwen3",
+        "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen3",
+        "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+        "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
+        "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
+        "API_TIMEOUT_MS": "3000000",
+        "DISABLE_TELEMETRY": "1"
+    },
+    "mcpServers": {
+        "jupyter": {
+            "command": "npx",
+            "args": [
+                "mcp-remote",
+                "https://<YOUR_JUPYTERHUB_URL>/user/<your-username>/proxy/3001/mcp?token=<YOUR_JUPYTER_TOKEN>",
+                "--transport",
+                "http-only"
+            ]
+        }
+    }
+}
+```
+
+The three model slots all map to `qwen3` so every Claude Code model tier is
+served by the same NRP model.
+
+### Step 3 — launch a BinderHub notebook
+
+Launch your Binder at [https://binderhub.ssl-hep.org/](https://binderhub.ssl-hep.org/),
+wait for the server to start, and note the server name from the launch URL. Once
+it is running, construct the MCP URL:
+
+```text
+https://<jupyterhub-host>/user/<your-username>/<server-name>/proxy/3001/mcp?token=<token>
+```
+
+- The **server name** comes from your BinderHub launch URL.
+- The **token** is a JupyterHub API token from `https://<jupyterhub-host>/hub/token`.
+
+Plug this URL into the `jupyter` MCP entry from Step 2.
+
+### Step 4 — start Claude Code
+
+Launch without triggering the Anthropic login flow:
+
+```bash
+export ANTHROPIC_AUTH_TOKEN="YOUR_NRP_TOKEN_HERE"
+export ANTHROPIC_BASE_URL="https://ellm.nrp-nautilus.io/anthropic"
+unset ANTHROPIC_API_KEY
+claude
+```
+
+!!! note "Why `unset ANTHROPIC_API_KEY`?"
+
+    Claude Code uses `ANTHROPIC_AUTH_TOKEN` when `ANTHROPIC_API_KEY` is absent.
+    Unsetting it ensures the NRP token is used without triggering a login
+    prompt.
+
+### Reference
+
+| What          | Where                                      |
+| ------------- | ------------------------------------------ |
+| NRP token     | `https://nrp.ai/llmtoken/`                 |
+| BinderHub     | `https://binderhub.ssl-hep.org/`           |
+| LLM endpoint  | `https://ellm.nrp-nautilus.io/anthropic`   |
+| Model name    | `qwen3` (for the opus/sonnet/haiku slots)  |
+| MCP transport | `http-only` via `mcp-remote`               |
+| MCP port      | `3001` (proxied through JupyterHub)        |
