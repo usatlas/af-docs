@@ -218,16 +218,18 @@ served by the same NRP model.
 
 ### Step 3 — launch a BinderHub notebook
 
-Launch your Binder at [https://binderhub.ssl-hep.org/](https://binderhub.ssl-hep.org/),
-wait for the server to start, and note the server name from the launch URL. Once
-it is running, construct the MCP URL:
+Launch your Binder at
+[https://binderhub.ssl-hep.org/](https://binderhub.ssl-hep.org/), wait for the
+server to start, and note the server name from the launch URL. Once it is
+running, construct the MCP URL:
 
 ```text
 https://<jupyterhub-host>/user/<your-username>/<server-name>/proxy/3001/mcp?token=<token>
 ```
 
 - The **server name** comes from your BinderHub launch URL.
-- The **token** is a JupyterHub API token from `https://<jupyterhub-host>/hub/token`.
+- The **token** is a JupyterHub API token from
+  `https://<jupyterhub-host>/hub/token`.
 
 Plug this URL into the `jupyter` MCP entry from Step 2.
 
@@ -250,11 +252,11 @@ claude
 
 ### Reference
 
-| What          | Where                                      |
-| ------------- | ------------------------------------------ |
-| NRP token     | `https://nrp.ai/llmtoken/`                 |
-| BinderHub     | `https://binderhub.ssl-hep.org/`           |
-| LLM endpoint  | `https://ellm.nrp-nautilus.io/anthropic`   |
-| Model name    | `qwen3` (for the opus/sonnet/haiku slots)  |
-| MCP transport | `http-only` via `mcp-remote`               |
-| MCP port      | `3001` (proxied through JupyterHub)        |
+| What          | Where                                     |
+| ------------- | ----------------------------------------- |
+| NRP token     | `https://nrp.ai/llmtoken/`                |
+| BinderHub     | `https://binderhub.ssl-hep.org/`          |
+| LLM endpoint  | `https://ellm.nrp-nautilus.io/anthropic`  |
+| Model name    | `qwen3` (for the opus/sonnet/haiku slots) |
+| MCP transport | `http-only` via `mcp-remote`              |
+| MCP port      | `3001` (proxied through JupyterHub)       |
