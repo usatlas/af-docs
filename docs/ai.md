@@ -204,7 +204,7 @@ to NRP and register the Jupyter MCP server:
             "command": "npx",
             "args": [
                 "mcp-remote",
-                "https://<YOUR_JUPYTERHUB_URL>/user/<your-username>/proxy/3001/mcp?token=<YOUR_JUPYTER_TOKEN>",
+                "https://<YOUR_JUPYTERHUB_URL>/user/<your-username>/<your-servername>/proxy/3001/mcp?token=<YOUR_JUPYTER_TOKEN>",
                 "--transport",
                 "http-only"
             ]
