@@ -75,8 +75,8 @@ After this and restart the Jupyter environment, you will see a new kernel call
 ## Using built-in Conda environments
 
 Some images, such as `atlas/20210403` has Andconda3 built-in to support Conda
-environments such as ["rapids-0.18"](https://rapids.ai) and
-"tf-keras-gpu". You can use these Conda environments by
+environments such as ["rapids-0.18"](https://rapids.ai) and "tf-keras-gpu". You
+can use these Conda environments by
 `source /opt/anaconda3/etc/profile.d/conda.sh`. Alternatively, you can also mix
 them with your own Conda installation and environments by creating a file
 `~/.condarc` and put the following lines inside
