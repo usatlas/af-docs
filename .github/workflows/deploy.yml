@@ -6,12 +6,20 @@ on:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Dispatch uses a dedicated PAT (secrets.MANIACLAB_AI_FACTORY_DEPLOY_TOKEN), not GITHUB_TOKEN
+permissions: {}
+
 jobs:
   trigger-gitops:
+    name: Trigger AI Factory GitOps
     runs-on: ubuntu-latest
     steps:
       - name: Send Repository Dispatch to maniaclab/ai_factory
-        uses: peter-evans/repository-dispatch@v4
+        uses: peter-evans/repository-dispatch@28959ce8df70de7be546dd1250a005dd32156697 # v4.0.1
         with:
           token: ${{ secrets.MANIACLAB_AI_FACTORY_DEPLOY_TOKEN }}
           repository: maniaclab/ai_factory
