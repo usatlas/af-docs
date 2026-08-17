@@ -59,7 +59,10 @@ platform that includes:
 
 **Available tags:**
 
-- `ml_platform:latest` - Latest stable version (recommended)
+- `ml_platform-cpu:latest` - Latest stable version (recommended)
+- `ml_platform-cpu:YYYY.MM` - Specific (older) release versions
+- `ml_platform-gpu:latest` - Latest stable version (recommended)
+- `ml_platform-gpu:YYYY.MM` - Specific (older) release versions
 - `ml_platform:YYYY.MM` - Specific (older) release versions
 
 For the complete list of packages, version information, and detailed

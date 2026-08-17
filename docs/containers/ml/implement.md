@@ -87,7 +87,7 @@ run the ML images at the command line.
 
 === "UChicago"
 
-    Currently the UChicago JupyterLab servers don't allow custom containers when creating a new notebook. This is planning on being updated soon. In the meantime, the `ml-platform:latest` container shown in the `Image` dropdown box does have all packages necessary for running the ML Tutorial material.
+    Currently the UChicago JupyterLab servers don't allow custom containers when creating a new notebook. This is planning on being updated soon. In the meantime, the `ml-platform-cpu:latest` or `ml-platform-gpu:latest` containers shown in the `Image` dropdown box does have all packages necessary for running the ML Tutorial material.
 
 === "SLAC"
 
