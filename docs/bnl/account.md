@@ -97,4 +97,4 @@ RT-RACF-UserAccounts@bnl.gov with subject line starting with "**Lightweight User
 Account Request for ATLAS Federated ID from** _<your name>_." You will be
 informed through the RT ticket via email when your account has been created. At
 that point, you will be able to log in with your federated credentials on the
-jupyterhub portal at <https://atlas-jupyter.sdcc.bnl.gov/>.
+jupyterhub portal at <https://jupyter-fedid.sdcc.bnl.gov/>.

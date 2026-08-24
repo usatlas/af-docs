@@ -1,6 +1,6 @@
-# [The BNL JupyterLab](https://atlas-jupyter.sdcc.bnl.gov)
+# [The BNL JupyterLab](https://jupyter-fedid.sdcc.bnl.gov)
 
-Before accessing the BNL JupyterHub - <https://atlas-jupyter.sdcc.bnl.gov/>,
+Before accessing the BNL JupyterHub - <https://jupyter-fedid.sdcc.bnl.gov/>,
 please apply for a BNL computing account.
 [Link to the instructions.](account.md). BNL's Scientific Data Computing Center
 (SDCC) provides JupyterHub environment on their HTC (high throughput computing)
