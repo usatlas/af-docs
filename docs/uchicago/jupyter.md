@@ -73,19 +73,24 @@ documentation, see the
 
 You can install additional packages directly from your notebook with
 [`pixi`](https://pixi.prefix.dev/latest/). The `ml_platform` image organizes
-packages under features. For ML-related packages, use the `ml` feature (`-f ml`)
-and install them with the `ml` environment (`-e ml`). If you are not using a
-GPU-node, you can use the `mlcpu` environment which has the same set of packages
-without the `cuda` system requirement.
+packages under features. ML-related packages live in the `mlbase` feature
+(`-f mlbase` / `--feature mlbase`), which is shared by the `ml` and `mlcpu`
+environments. If you are not using a GPU-node, you can use the `mlcpu`
+environment which has the same set of packages without the `cuda` system
+requirement.
 
 **Example**: installing the GPU-version of `pytorch` along with `torchvision`
 and `xgboost` available on [conda-forge](https://conda-forge.org/packages/), you
 can run the following inside the notebook
 
 ```bash
-pixi add -f ml pytorch-gpu torchvision xgboost
-pixi install -e ml
+!pixi add pytorch-gpu torchvision xgboost --feature mlbase
+!pixi lock
 ```
+
+Then restart the kernel. The `!` prefix runs the command directly from a
+notebook cell; you can also open a terminal in JupyterLab and run the same
+commands without the `!`.
 
 For more advanced pixi usage, including custom environments and
 multi-environment support, see the [pixi](#pixi) section below.
@@ -190,17 +195,20 @@ incrementally or don't have an existing environment file.
 **Example: Creating a custom analysis feature:**
 
 ```bash
-# Create a new feature with core packages
-pixi add -f analysis numpy pandas matplotlib scipy
-
-# Add more packages as needed
-pixi add -f analysis uproot awkward hist
+# Create a new feature with core packages, including pixi-kernel
+!pixi add -f analysis numpy pandas matplotlib scipy uproot awkward hist pixi-kernel
 
 # Specify Python version if needed
-pixi add -f analysis "python>=3.11"
+!pixi add -f analysis "python>=3.11"
+```
 
-# Register the kernel
-pixi add -f analysis pixi-kernel
+Creating a feature does not automatically create a matching environment or
+kernel — you must register one explicitly, combining as many features as you
+need:
+
+```bash
+!pixi project environment add debug -f mlbase -f analysis
+!pixi lock
 ```
 
 You can also combine packages from different channels:
@@ -210,10 +218,16 @@ You can also combine packages from different channels:
 pixi add -f ml-custom -c pytorch -c conda-forge pytorch torchvision
 pixi add -f ml-custom scikit-learn xgboost
 pixi add -f ml-custom pixi-kernel
+pixi project environment add ml-custom -f ml-custom
+pixi lock
 ```
 
-Once created, use the feature as a kernel following the same steps described in
-the "Using your custom kernel in JupyterLab" section above.
+Once created, restart the kernel so the new environment (e.g. `debug`) shows up
+in the property inspector, then follow the same steps described in "Using your
+custom kernel in JupyterLab" above to select it, save the notebook, and restart
+the kernel again. The first time you switch to a newly created environment, pixi
+has to build it from scratch, which can hang for up to a minute while it
+installs all the packages — this is expected and only happens once.
 
 ### Managing Environments
 
