@@ -13,7 +13,7 @@ Lab environment. Some of the Jupyter kernels available there includes:
 Use the following links to access the Jupyter environment at the AFs, or access
 site specific documents on Jupyter.
 
-- BNL JupyterLab - <https://atlas-jupyter.sdcc.bnl.gov/> and
+- BNL JupyterLab - <https://jupyter-fedid.sdcc.bnl.gov/> and
   [documents](../bnl/jupyter.md).
 - [SLAC JupyterLab](https://sdf.slac.stanford.edu/public/doc/#/interactive-compute?id=jupyter)
   and [documents](../slac/jupyter.md).
