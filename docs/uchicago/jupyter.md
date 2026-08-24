@@ -17,21 +17,11 @@ notebook:
 2. You can request 1 to 16 CPU cores.
 3. You can request 1 to 32 GB of memory.
 4. You can request 0 to 7 GPU instances.
-5. A notebook can have lifetime of up to 72 hours (1 to 168 hours).
+5. A notebook can have lifetime of up to 72 hours.
 6. You can select a GPU model based on its memory size. If you request a GPU,
    please make sure the GPU is available, by clicking on the icon next to GPU
    memory.
 7. You can choose a Docker image from the dropdown.
-
-## Resource Limitations
-
-- You can request 1 to 16 CPU cores.
-- You can request 1 to 32 GB of memory.
-- You can request 0 to 7 GPU instances.
-- A notebook can have lifetime of up to 72 hours.
-- You can select a GPU model based on its memory size. If you request a GPU,
-  please make sure the GPU is available, by clicking on the icon next to GPU
-  memory.
 
 ## Selecting GPU memory and instances
 
@@ -63,7 +53,6 @@ platform that includes:
 - `ml_platform-cpu:YYYY.MM` - Specific (older) release versions
 - `ml_platform-gpu:latest` - Latest stable version (recommended)
 - `ml_platform-gpu:YYYY.MM` - Specific (older) release versions
-- `ml_platform:YYYY.MM` - Specific (older) release versions
 
 For the complete list of packages, version information, and detailed
 documentation, see the
@@ -122,7 +111,7 @@ JupyterLab.
 
 **Understanding pixi features and environments:**
 
-- A **feature** is a named collection of packages (e.g., `ml`, `data-science`)
+- A **feature** is a named collection of packages (e.g., `data-science`, `nlp`)
 - An **environment** can combine multiple features together
 - Multiple environments can point to the same features in different combinations
 - This gives you full control over your dependencies, even more than conda/pip
@@ -248,10 +237,10 @@ pixi list -e my-env
 
 ```bash
 # Update specific packages in a feature
-pixi update -f ml pytorch torchvision
+pixi update -f mlbase pytorch torchvision
 
 # Update all packages in a feature
-pixi update -f ml
+pixi update -f mlbase
 
 # Update all packages in all environments
 pixi update
@@ -291,7 +280,7 @@ pixi install -e my-env
 Choose the right approach for your needs to keep your environments manageable
 and maintainable:
 
-**When to use the simple approach** (add to `ml` or `mlcpu` feature):
+**When to use the simple approach** (add to the `mlbase` feature):
 
 - You need just a few additional packages
 - Packages are compatible with the existing `ml` or `mlcpu` environment
@@ -402,7 +391,7 @@ du -sh ~/.pixi
 # Remove unused features by editing pixi.toml and running
 pixi install
 
-# Consider using the shared ml environment for common packages
+# Consider using the shared mlbase feature for common packages
 ```
 
 **Problem: Import is slow or hangs**
