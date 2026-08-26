@@ -3,7 +3,7 @@
 The ways to list, write and read files on CERN EOS, documented
 [here](https://twiki.cern.ch/twiki/bin/view/AtlasComputing/ATLASStorageAtCERN#EOS_storage_system),
 still work at BNL, but you need specify the full EOS server name
-**eosatlas.cern.ch** and obtain a CERN Kerberos ticket.
+`eosatlas.cern.ch` and obtain a CERN Kerberos ticket.
 
 You can obtain and cache a CERN Kerberos ticket (this is also required for the
 way of using ssh-tunnel below) by:
@@ -14,11 +14,11 @@ kinit YourNameAtCERN@CERN.CH
 
 !!! warning "CERN.CH must be uppercase"
 
-    Please be aware that in the above command the realm **CERN.CH** must be in
+    Please be aware that in the above command the realm `CERN.CH` must be in
     **UPPERCASE**.
 
-As convenience for the US ATLAS users, we have installed the eos-client and
-eos-fusex packages on the interactive nodes.
+As convenience for the US ATLAS users, we have installed the `eos-client` and
+`eos-fusex` packages on the interactive nodes.
 
 After obtaining your CERN Kerberos ticket, you can access both the **ATLAS EOS**
 and **USER EOS** instances.
@@ -32,7 +32,7 @@ ls /eos/user/y/yesw/...
 
 !!! note
 
-    Please replace _"y/yesw"_ with your own username at CERN.
+    Please replace `y/yesw` with your own username at CERN.
 
 To copy files from EOS:
 
@@ -52,7 +52,7 @@ You can create new directories in your EOS area at CERN:
 mkdir /eos/atlas/YourDir/NewDirectory
 ```
 
-In addition, you can also use ssh-tunnel to **eosatlas.cern.ch**:
+In addition, you can also use ssh-tunnel to `eosatlas.cern.ch`:
 
 ```bash
 ssh -NfL 1094:eosatlas:1094 lxplus.cern.ch
@@ -72,7 +72,7 @@ xrdcp root://eosatlas.cern.ch//eos/atlas/YourDir/YourFilename.root .
 xrdcp root://localhost//eos/atlas/YourDir/YourFilename.root .  # if using ssh-tunnel
 ```
 
-Or you make use of the existing script **eos-copy.py**, which is an alias and
+Or you make use of the existing script `eos-copy.py`, which is an alias and
 should have been defined for you upon login:
 
 ```bash
@@ -109,20 +109,20 @@ The method using ssh-tunnel would not work in batch jobs, you need access them
 directly with `root://eosatlas.cern.ch`. However, for protected EOS files, you
 need pass your CERN Kerberos ticket to the batch machines in the following way:
 
-1. First define one envvar **KRB5CCNAME** prior to running
+1. First define one envvar `KRB5CCNAME` prior to running
    `kinit YourNameAtCERN@CERN.CH`:
 
     ```bash
     export KRB5CCNAME=$HOME/krb5cc_`id -u`
     ```
 
-2. Then add the envvar **KRB5CCNAME** to your condor batch jobs.
+2. Then add the envvar `KRB5CCNAME` to your condor batch jobs.
 
 ## Access to CERN EOS through BNL Xcache server
 
 If you need repeat access the same EOS files, you can make use of the BNL Xcache
 server to speed up the reading speed for the sequential access.
 
-Just use the option **--eos=EOS_PATH** in the script **Xcache_ls.py** to
-generate the clist files for your EOS files at CERN. Please run **Xcache_ls.py
--h** for more details.
+Just use the option `--eos=EOS_PATH` in the script `Xcache_ls.py` to generate
+the clist files for your EOS files at CERN. Please run `Xcache_ls.py -h` for
+more details.

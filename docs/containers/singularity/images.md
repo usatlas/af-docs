@@ -2,10 +2,10 @@
 
 ## Containers on CVMFS
 
-There are a few singularity containers accessible by keyword **slc5**, **slc6**,
-**centos6** and **centos7** through command `setupATLAS -c`. There are many
-other images available under **/cvmfs/unpacked.cern.ch/**. If this CVMFS path is
-not visible, please add this mount point to the CVMFS client on your computer.
+There are a few singularity containers accessible by keyword `slc5`, `slc6`,
+`centos6` and `centos7` through command `setupATLAS -c`. There are many other
+images available under `/cvmfs/unpacked.cern.ch/`. If this CVMFS path is not
+visible, please add this mount point to the CVMFS client on your computer.
 
 >     lxplus$ ls /cvmfs/unpacked.cern.ch/
 >     gitlab-registry.cern.ch  logDir  registry.hub.docker.com
@@ -58,15 +58,15 @@ Let us take an example of release AthAnalysis,2.2.115 under
 >     Configured AthAnalysis from: /usr/AthAnalysis/21.2.115/InstallArea/x86_64-centos7-gcc8-opt
 >     [bash][yesw AthAnalysis-21.2.115]:~ >
 
-That is, start the wanted container, then source /home/atlas/release_setup.sh.
+That is, start the wanted container, then source `/home/atlas/release_setup.sh`.
 
 ## Containers on Docker Hub
 
 The Docker hub hosts the largest container images. You can input keyword to
 [search on the hub](https://hub.docker.com/search/?q=rust&type=image). For
-example, you can put a keyword "atlas/" under the search field as shown below:
+example, you can put a keyword `atlas/` under the search field as shown below:
 
-- A screenshot of searching for "Atlas/" on the Docker Hub:
+- A screenshot of searching for `Atlas/` on the Docker Hub:
   ![](./DockerHub-Atlas.jpg)
 
 Click on the found container, it will provides the pull command instruction and

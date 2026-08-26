@@ -13,7 +13,7 @@ Analysis Facility.
 You can grab the CLI through a
 [standalone install](https://code.visualstudio.com/#alt-downloads). However, the
 executable `code` has already been installed as
-_/cvmfs/atlas.sdcc.bnl.gov/users/yesw/t3s/bin/code_.
+`/cvmfs/atlas.sdcc.bnl.gov/users/yesw/t3s/bin/code`.
 
 Create a secure tunnel with the tunnel command:
 
@@ -35,8 +35,8 @@ By using the software, you agree to
 ```
 
 On a browser, following the above instruction, visit
-https://github.com/login/device, input the code. On the next web page, click on
-the button of `Authorize Visual-Studio-Code`.
+`https://github.com/login/device`, input the code. On the next web page, click
+on the button of `Authorize Visual-Studio-Code`.
 
 Afterward, the remote machine screen would prompt:
 
@@ -44,7 +44,7 @@ Afterward, the remote machine screen would prompt:
 What would you like to call this machine?
 ```
 
-Provide a name to the remote machine, for example, _BNL-ATTSUB_.
+Provide a name to the remote machine, for example, `BNL-ATTSUB`.
 
 Then it would yield something like:
 
@@ -59,11 +59,11 @@ Now you can explore the files on the remote machine, and use VSCode to edit
 file:
 
 - Either on a browser, open the above link:
-  https://vscode.dev/tunnel/bnl-attsub/home/tmp/yesw
+  `https://vscode.dev/tunnel/bnl-attsub/home/tmp/yesw`
 - Or in VSCode client, open **Remote Explorer**, click on **Remotes**, then
-  **Tunnels**, choose the name **BNL-ATTSUB**.
+  **Tunnels**, choose the name `BNL-ATTSUB`.
 
-In the VSCode client, you can see the name **BNL-ATTSUB** as shown in the
+In the VSCode client, you can see the name `BNL-ATTSUB` as shown in the
 following screenshot:
 
 ![screenshot of BNL Remote Tunnels connection](../images/bnl-vscode-remote-tunnels.png)

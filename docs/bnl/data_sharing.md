@@ -17,8 +17,8 @@ You or your collaborators may need remote access to files at BNL.
 
 ### Access to BNL dCache files from CERN
 
-You can use the following scripts (**~yesw/public/bnl/bnl_pnfs-ls.py**) to
-generate clist or list files under a given BNL /pnfs directory.
+You can use the following scripts (`~yesw/public/bnl/bnl_pnfs-ls.py`) to
+generate clist or list files under a given BNL `/pnfs` directory.
 
 ```
 lxplus% ~yesw/public/bnl/bnl_pnfs-ls.py -h
@@ -58,7 +58,7 @@ chain->AddFileInfoList(fc.GetList());
 
 ### Access to BNL other file systems from CERN
 
-You can use **sshfs** to mount the remote BNL files to lxplus machines locally.
+You can use `sshfs` to mount the remote BNL files to lxplus machines locally.
 For example:
 
 ```bash
@@ -71,9 +71,9 @@ lxplus% sshfs attsub02:/atlasgpfs01/usatlas/data/yesw2000 /tmp/yesw/data
     This assumes that you have already set up the ssh configuration as shown in
     [the section of interactive connection to BNL](accessing.md#ssh-connection-to-the-interactive-nodes).
 
-To umount the mounted point, just run **fusermount -u /tmp/yesw/data**.
+To umount the mounted point, just run `fusermount -u /tmp/yesw/data`.
 
-To list all the sshfs mounted points, just run **pgrep -a -f sshfs**.
+To list all the sshfs mounted points, just run `pgrep -a -f sshfs`.
 
 ### Access to BNL other file systems from other remote computers
 

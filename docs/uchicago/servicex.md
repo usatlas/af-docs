@@ -28,8 +28,8 @@ Once approved, you will be able to see status of your requests in the dashboard:
 ![ServiceX dashboard](../images/servicex-dashboard.png)
 
 For your code to be able to authenticate your requests, you need to download a
-servicex.yaml file, that should be placed in your working directory. The file is
-downloaded from your profile page:
+`servicex.yaml` file, that should be placed in your working directory. The file
+is downloaded from your profile page:
 
 ![ServiceX profile](../images/servicex-profile.png)
 

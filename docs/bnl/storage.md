@@ -4,9 +4,9 @@
 
 |                |                                                                                                                                                |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Home area      | 20GB (with backup) per user under $HOME                                                                                                        |
-| Data area      | 500GB per user under /atlasgpfs01/usatlas/data/$USERNAME                                                                                       |
-| dCache area    | 5TB per user under /pnfs/usatlas.bnl.gov/users/$USERNAME.                                                                                      |
+| Home area      | 20GB (with backup) per user under `$HOME`                                                                                                      |
+| Data area      | 500GB per user under `/atlasgpfs01/usatlas/data/$USERNAME`                                                                                     |
+| dCache area    | 5TB per user under `/pnfs/usatlas.bnl.gov/users/$USERNAME`.                                                                                    |
 | BNLBox         | 50GB (with backup) space under [https://bnlbox.sdcc.bnl.gov](https://bnlbox.sdcc.bnl.gov/), accessiblle from both mobile devices and computers |
 | LOCALGROUPDISK | 50TB (default) on the grid at BNL. Please check [below](#localgroupdisk) for more details                                                      |
 
@@ -26,13 +26,13 @@
 
 ### Guidance on storage usage
 
-As a reminder, your home area ($HOME) is intended to store analysis code, and
+As a reminder, your home area (`$HOME`) is intended to store analysis code, and
 not data.
 
 Please use the other storage (`dCache`, `LOCALGROUPDISK`, and **Data area**) to
 store data.
 
-As for dCache, the files could be listed with the command `ls` under /pnfs.
+As for dCache, the files could be listed with the command `ls` under `/pnfs`.
 However, they should be accessed via xrootd as explained
 [below](#use-the-bnl-dcache-space). And for batch jobs, it is recommended to
 write into the dCache at the job end.
@@ -41,7 +41,7 @@ write into the dCache at the job end.
 
 If you need to store data outside of the resources dedicated to the BNL Tier 3
 (either due to needing more space, or to share data with colleagues who are not
-using the BNL Tier 3), consider using LOCALGROUPDISK, which is a resource that
+using the BNL Tier 3), consider using `LOCALGROUPDISK`, which is a resource that
 all US ATLAS collaborators have access to. You can check at
 [RSE account usage](https://rucio-ui.cern.ch/r2d2/manage_quota) with the RSE
 `BNL-OSG2_LOCALGROUPDISK` selected. Every user should have a **default quota of
@@ -69,11 +69,11 @@ retrieving huge amounts of data, distributed among a large number of
 heterogeneous server nodes, under a single virtual filesystem tree with a
 variety of standard access methods.
 
-In order to use it efficiently, please do **NOT write output directly to /pnfs**
-path (the dCache space), and also **avoid small files**. Instead you should use
-the tool described below or Linux standard cp command. In the following
-sub-sections, it describes the way to access and replicate datasets to this
-system.
+In order to use it efficiently, please do **NOT write output directly to
+`/pnfs`** path (the dCache space), and also **avoid small files**. Instead you
+should use the tool described below or Linux standard `cp` command. In the
+following sub-sections, it describes the way to access and replicate datasets to
+this system.
 
 ### Access to the datasets on BNL dCache
 
@@ -129,7 +129,7 @@ Options:
 ### Access your data in your pNFS space
 
 This section shows you how to access data in your pNFS space
-(/pnfs/usatlas.bnl.gov/users/$USER/....)
+(`/pnfs/usatlas.bnl.gov/users/$USER/....`)
 
 BNL supports various interfaces to your area:
 
@@ -137,12 +137,16 @@ BNL supports various interfaces to your area:
 optimum way within your interactive or panda/condor jobs. All files are
 accessible via xrootd by prepending the following
 
-    root://dcgftp.usatlas.bnl.gov:1096/
+```
+root://dcgftp.usatlas.bnl.gov:1096/
+```
 
 For example:
 
-    xrdcp -f root://dcgftp.usatlas.bnl.gov:1096//pnfs/usatlas.bnl.gov/users/hiroito/rucio/data10_7TeV/data10_7TeV.00167680.physics_MinBias.merge.AOD.r1774_p327_p333_tid206966_00/AOD.206966._000004.pool.root.1 /home/hiroito/abc.1
-    [4.063GB/4.063GB][100%][==================================================][106.7MB/s]
+```sh
+xrdcp -f root://dcgftp.usatlas.bnl.gov:1096//pnfs/usatlas.bnl.gov/users/hiroito/rucio/data10_7TeV/data10_7TeV.00167680.physics_MinBias.merge.AOD.r1774_p327_p333_tid206966_00/AOD.206966._000004.pool.root.1 /home/hiroito/abc.1
+[4.063GB/4.063GB][100%][==================================================][106.7MB/s]
+```
 
 Please notice that xrootd access would require a valid grid proxy.
 
@@ -185,20 +189,24 @@ where the last part in the path is your unique UUID.
 The software **[cadaver](http://www.webdav.org/cadaver/)** has been installed on
 attsub machines at BNL, and lxplus machines at CERN. It is a command line webDAV
 client, with ftp-like commands. To save you from typing the username/password
-every time, you can prepare a file `.netrc` under $HOME directory with the
+every time, you can prepare a file `.netrc` under `$HOME` directory with the
 following content:
 
-    machine bnlbox.sdcc.bnl.gov
-      login yourLoginEmail
-      password yourPassword
+```
+machine bnlbox.sdcc.bnl.gov
+  login yourLoginEmail
+  password yourPassword
+```
 
-where you should put your own login and password. And run "chmod 600
-$HOME/.netrc" to make this file visible only to yourself.
+where you should put your own login and password. And run
+`chmod 600 $HOME/.netrc` to make this file visible only to yourself.
 
 In addition, you can prepare another file `\~/.cadaverrc` with the following
 line:
 
-    open https://bnlbox.sdcc.bnl.gov/remote.php/dav/files/Your-LONG-UUID-for-BNLBox/
+```
+open https://bnlbox.sdcc.bnl.gov/remote.php/dav/files/Your-LONG-UUID-for-BNLBox/
+```
 
 Please put your own long UUID here.
 
@@ -226,25 +234,27 @@ dav:/remote.php/dav/files/BNL-User-8efba3ed-bfc8-4324-9cef-e9f4878c3c8d/>
 
 You can use davix commands (`davix-ls`, `davix-put` and `davix-get`) as well to
 access to your BNLBox. These commands are available by default on lxplus. At
-BNL, you need run "setupATLAS -q; lsetup davix" to set up the env. Then specify
+BNL, you need run `setupATLAS -q; lsetup davix` to set up the env. Then specify
 the full webDAV to the davix commands plus an option `-k` (Disable SSL
 credential checks).
 
->     attsub01% setupATLAS -q
->     attsub01% lsetup davix
->     attsub01% davix-ls -k https://bnlbox.sdcc.bnl.gov/remote.php/dav/files/BNL-User-8efba3ed-bfc8-4324-9cef-e9f4878c3c8d/
->     davix: using ~/.netrc to load additional configuration. (match: bnlbox.sdcc.bnl.gov)
->     copy_bnl_box.rb
->     dCache
->     Documents
->     ._.DS_Store
->     .DS_Store
->     Nextcloud%20Manual.pdf
->     Nextcloud.mp4
->     Nextcloud.png
->     Photos
->     testDir
->     Archive
+```
+    attsub01% setupATLAS -q
+    attsub01% lsetup davix
+    attsub01% davix-ls -k https://bnlbox.sdcc.bnl.gov/remote.php/dav/files/BNL-User-8efba3ed-bfc8-4324-9cef-e9f4878c3c8d/
+    davix: using ~/.netrc to load additional configuration. (match: bnlbox.sdcc.bnl.gov)
+    copy_bnl_box.rb
+    dCache
+    Documents
+    ._.DS_Store
+    .DS_Store
+    Nextcloud%20Manual.pdf
+    Nextcloud.mp4
+    Nextcloud.png
+    Photos
+    testDir
+    Archive
+```
 
 ### Use the BNLBox on Mobile Devices
 

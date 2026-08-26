@@ -7,7 +7,7 @@ e.g. `srun -A atlas:usatlas hostname`. The partition to use is `roma` (an HPC
 cluster with AMD EPYC 7702 CPUs) and `ampere` (a Nvidia A100 GPU cluster). The
 following is a typical script to be used with the `sbatch` command:
 
-```
+```bash
 #!/bin/bash
 #
 #SBATCH --account=atlas:usatlas
@@ -54,16 +54,16 @@ April 2024.
 The [main page of SDF](https://sdf.slac.stanford.edu) provides
 [basic info about using SLURM batch system](https://sdf.slac.stanford.edu/public/doc/#/batch-compute?id=using-slurm).
 One of the lines in the example SLURM submission script,
-`#SBATCH --partition=shared` allows you to specify "shared" or "usatlas".
+`#SBATCH --partition=shared` allows you to specify `shared` or `usatlas`.
 
-ATLAS owns a small fraction of CPU resource in SDF. "usatlas" will give you
+ATLAS owns a small fraction of CPU resource in SDF. `usatlas` will give you
 guaranteed access to ATLAS owned CPUs but you may have to wait if other ATLAS
-users are using them. "shared" allows you to access a large pool of CPUs (own by
+users are using them. `shared` allows you to access a large pool of CPUs (own by
 others) so the waiting time will likely be shorter. But there is small risk that
 your job will be pre-emptied. The rule of thumb is to run short jobs in
-"shared", and run long jobs (12h+) in "usatlas".
+`shared`, and run long jobs (12h+) in `usatlas`.
 
-To request a GPU, add "#SBATCH --gpus=1" to the submission script. All installed
+To request a GPU, add `#SBATCH --gpus=1` to the submission script. All installed
 GPUs are Nvidia CUDA GPUs. Since ATLAS currently does not own a GPU at SDF, you
 will need to use `#SBATCH --partition=shared` if you request a GPU.
 
@@ -72,4 +72,4 @@ will need to use `#SBATCH --partition=shared` if you request a GPU.
 The following page has many useful info about using the AFS environment,
 esepecially with regard to using the LSF batch system.
 
-https://confluence.slac.stanford.edu/display/Atlas/SLAC+Analysis+Computing+Facility
+`https://confluence.slac.stanford.edu/display/Atlas/SLAC+Analysis+Computing+Facility`

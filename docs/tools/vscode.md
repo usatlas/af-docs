@@ -91,8 +91,8 @@ By using the software, you agree to
 ```
 
 On a browser, following the above instruction, visit
-https://github.com/login/device, input the code. On the next web page, click on
-the button of `Authorize Visual-Studio-Code`.
+`https://github.com/login/device`, input the code. On the next web page, click
+on the button of `Authorize Visual-Studio-Code`.
 
 Afterward, the remote machine screen would prompt:
 

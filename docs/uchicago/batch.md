@@ -17,9 +17,9 @@ Before submitting jobs, review the following:
 For information about storage quotas and filesystem usage, see
 [Data Storage](storage.md).
 
-!!! warning "$HOME quota"
+!!! warning "`$HOME` quota"
 
-    Your quota at $HOME is 100GB. Be careful not to exceed this quota because some
+    Your quota at `$HOME` is 100GB. Be careful not to exceed this quota because some
     issues may arise, for example not being able to login next time.
 
     **Tips:**
@@ -365,7 +365,7 @@ lsetup emi
 voms-proxy-init -voms atlas -out $HOME/x509proxy
 ```
 
-You will want to generate the proxy on, or copy it to, the shared $HOME
+You will want to generate the proxy on, or copy it to, the shared `$HOME`
 filesystem so that the HTCondor scheduler can find and read the proxy. With the
 following additions to your jobscript, HTCondor will configure the job
 environment automatically for X509 authenticated data access:
@@ -649,44 +649,44 @@ with your preferred software.
 
 ### Submit file attributes
 
-| Option                  | What is it for?                                                                                                                                                                                                                                                                                                                                                                        |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transfer_output_files=  | When it isn't specified, it automatically transfers back all files that have been created or modified in the job's temporary working directory.                                                                                                                                                                                                                                        |
-| transfer_input_files    | HTCondor transfer input files from the machine where the job is submitter to the machine chosen to execute the job                                                                                                                                                                                                                                                                     |
-| when_to_transfer_output | <ul><li>on_exit: (default) when the job ends on its own</li><li>on_exit_or_evict: if the job is evicted from the machine</li></ul>                                                                                                                                                                                                                                                     |
-| should_transfer_files   | <ul><li>yes: always transfer files to the remote working directory</li><li>if_needed: (default) access the files from a shared file system if possible, otherwise it will transfer the file</li><li>no: disables file transfer</li><li>command specifies whether HTCondor should assume the existence of a file system shared by the submit machine and the execute machine.</li></ul> |
-| arguments               | options passed to the exe from the cmd line                                                                                                                                                                                                                                                                                                                                            |
-| periodic_remove=time    | <ul><li>remove a job that has been in the queue for more than 100 hours e.g. (time() - QDate) > (100*3600)</li><li>remove jobs that have been running for more than two hours e.g. periodic_remove = (JobStatus == 2 ) && (time() - EnteredCurrentStatus) > (2*3600)</li></ul>                                                                                                         |
-| queue                   | indicates to create a job                                                                                                                                                                                                                                                                                                                                                              |
+| Option                    | What is it for?                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `transfer_output_files=`  | When it isn't specified, it automatically transfers back all files that have been created or modified in the job's temporary working directory.                                                                                                                                                                                                                                        |
+| `transfer_input_files`    | HTCondor transfer input files from the machine where the job is submitter to the machine chosen to execute the job                                                                                                                                                                                                                                                                     |
+| `when_to_transfer_output` | <ul><li>on_exit: (default) when the job ends on its own</li><li>on_exit_or_evict: if the job is evicted from the machine</li></ul>                                                                                                                                                                                                                                                     |
+| `should_transfer_files`   | <ul><li>yes: always transfer files to the remote working directory</li><li>if_needed: (default) access the files from a shared file system if possible, otherwise it will transfer the file</li><li>no: disables file transfer</li><li>command specifies whether HTCondor should assume the existence of a file system shared by the submit machine and the execute machine.</li></ul> |
+| `arguments`               | options passed to the exe from the cmd line                                                                                                                                                                                                                                                                                                                                            |
+| `periodic_remove=time`    | <ul><li>remove a job that has been in the queue for more than 100 hours e.g. (time() - QDate) > (100*3600)</li><li>remove jobs that have been running for more than two hours e.g. periodic_remove = (JobStatus == 2 ) && (time() - EnteredCurrentStatus) > (2*3600)</li></ul>                                                                                                         |
+| `queue`                   | indicates to create a job                                                                                                                                                                                                                                                                                                                                                              |
 
 ### Commands
 
-| Command                     | Description                                                                                                                      | Example |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| condor_hold                 | Put jobs in the queue into the hold state                                                                                        | -       |
-| condor_dagman               | Meta scheduler for the HTCondor jobs within a DAG (directed acyclic graph) or multiple DAGs                                      | -       |
-| condor_release              | Releases jobs from the HTCondor job queue that were previously placed in hold state                                              | -       |
-| condor_ssh_to_job JobId     | Creates an ssh session to a running job                                                                                          | -       |
-| condor_submit –interactive  | Sets up the job environment and input files. It gives a command prompt where you can then start job manually to see what happens | -       |
-| condor_q                    | Display information about your jobs in queue                                                                                     | -       |
-| condor_watch_q              | Event-driven live queue monitor (use this instead of `watch condor_q`)                                                           | -       |
-| condor_qedit                | To modify job attributes. Check condor_q -long; condor_qedit Cmd = path_to_executable #changes it                                | -       |
-| condor_q -long              | Check job's ClassAd attributes to edit the attributes                                                                            | -       |
-| condor_q -analyze 27497829  | Determines why certain jobs are not running                                                                                      | -       |
-| condor_q -hold 16.0         | Reason job 16.0 is in the hold state                                                                                             | -       |
-| condor_q -hold user         | retrieves: ID, OWNER, HELD_SINCE, HOLD_REASON                                                                                    | -       |
-| condor_q -nobatch           | retrieves: ID, OWNER, SUBMITTED, RUN_TIME, ST, PRI, SIZE, CMD                                                                    | -       |
-| condor_q -run               | retrieves: ID, OWNER, SUBMITTED, RUN_TIME, HOST(S)                                                                               | -       |
-| condor_q -factory -long     | Factory information and the jobMaterializationPauseReason attribute                                                              | -       |
-| condor_tail xx.yy           | Displays the last bytes of a file in the sandbox of a running job                                                                | -       |
-| condor_rm                   | Remove jobs from the queue (by user, cluster ID, or job ID)                                                                      | -       |
-| condor_rm -all              | Remove all your jobs from the queue                                                                                              | -       |
-| condor_history              | Review completed/past jobs that have left the queue                                                                              | -       |
-| condor_status               | View pool resources — machine and slot information                                                                               | -       |
-| condor_status -compact      | Summarized view of pool resources                                                                                                | -       |
-| condor_q -af Attr1 Attr2    | Auto-format: display specific ClassAd attributes in a scriptable format                                                          | -       |
-| condor_q -constraint 'expr' | Filter jobs by ClassAd expression                                                                                                | -       |
-| condor_q -all               | View all users' jobs, not just your own                                                                                          | -       |
+| Command                       | Description                                                                                                                      | Example |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `condor_hold`                 | Put jobs in the queue into the hold state                                                                                        | -       |
+| `condor_dagman`               | Meta scheduler for the HTCondor jobs within a DAG (directed acyclic graph) or multiple DAGs                                      | -       |
+| `condor_release`              | Releases jobs from the HTCondor job queue that were previously placed in hold state                                              | -       |
+| `condor_ssh_to_job JobId`     | Creates an ssh session to a running job                                                                                          | -       |
+| `condor_submit –interactive`  | Sets up the job environment and input files. It gives a command prompt where you can then start job manually to see what happens | -       |
+| `condor_q`                    | Display information about your jobs in queue                                                                                     | -       |
+| `condor_watch_q`              | Event-driven live queue monitor (use this instead of `watch condor_q`)                                                           | -       |
+| `condor_qedit`                | To modify job attributes. Check condor_q -long; condor_qedit Cmd = path_to_executable #changes it                                | -       |
+| `condor_q -long`              | Check job's ClassAd attributes to edit the attributes                                                                            | -       |
+| `condor_q -analyze 27497829`  | Determines why certain jobs are not running                                                                                      | -       |
+| `condor_q -hold 16.0`         | Reason job 16.0 is in the hold state                                                                                             | -       |
+| `condor_q -hold user`         | retrieves: ID, OWNER, HELD_SINCE, HOLD_REASON                                                                                    | -       |
+| `condor_q -nobatch`           | retrieves: ID, OWNER, SUBMITTED, RUN_TIME, ST, PRI, SIZE, CMD                                                                    | -       |
+| `condor_q -run`               | retrieves: ID, OWNER, SUBMITTED, RUN_TIME, HOST(S)                                                                               | -       |
+| `condor_q -factory -long`     | Factory information and the jobMaterializationPauseReason attribute                                                              | -       |
+| `condor_tail xx.yy`           | Displays the last bytes of a file in the sandbox of a running job                                                                | -       |
+| `condor_rm`                   | Remove jobs from the queue (by user, cluster ID, or job ID)                                                                      | -       |
+| `condor_rm -all`              | Remove all your jobs from the queue                                                                                              | -       |
+| `condor_history`              | Review completed/past jobs that have left the queue                                                                              | -       |
+| `condor_status`               | View pool resources — machine and slot information                                                                               | -       |
+| `condor_status -compact`      | Summarized view of pool resources                                                                                                | -       |
+| `condor_q -af Attr1 Attr2`    | Auto-format: display specific ClassAd attributes in a scriptable format                                                          | -       |
+| `condor_q -constraint 'expr'` | Filter jobs by ClassAd expression                                                                                                | -       |
+| `condor_q -all`               | View all users' jobs, not just your own                                                                                          | -       |
 
 ### Using condor within EventLoop
 

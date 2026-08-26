@@ -20,10 +20,10 @@ There are two ways to login to S3DF.
     2. Then login to the actual interactive pool node `ssh iana` to do your
        work.
 - **Login to S3DF web portal**
-    - Go to https://s3df.slac.stanford.edu/ondemand and login to via Jupyter or
-      a terminal. You will land on a batch node.
+    - Go to `https://s3df.slac.stanford.edu/ondemand` and login to via Jupyter
+      or a terminal. You will land on a batch node.
 
-S3DF also have a few data transfer nodes (s3dfdtn.slac.stanford.edu) for
+S3DF also have a few data transfer nodes (`s3dfdtn.slac.stanford.edu`) for
 interactive data transfers. Note that all nodes in S3DF, except the bastion
 nodes and DTN nodes above, are in private network IP space. There are limited
 NAT capacity to reach to the outside from these interactive and batch nodes.
@@ -39,7 +39,7 @@ in a container on an interactive node:
 
 1. Add the following to `$HOME/.bashrc` and re-login
 
-```
+```bash
   function setupATLAS()
   {
     export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
@@ -51,7 +51,7 @@ in a container on an interactive node:
 
 2. Start an ATLAS environment in an AlmaLinux 9 container
 
-```
+```sh
   setupATLAS -c el9
 ```
 
@@ -66,7 +66,7 @@ e.g. `srun -A atlas:usatlas hostname`. The partition to use is `roma` (an HPC
 cluster with AMD EPYC 7702 CPUs) and `ampere` (a Nvidia A100 GPU cluster). The
 following is a typical script to be used with the `sbatch` command:
 
-```
+```bash
 #!/bin/bash
 #
 #SBATCH --account=atlas:usatlas
@@ -102,9 +102,9 @@ partitions (e.g. `#SBATCH --partition=roma,ampere`).
 ### Setup ATLAS environment
 
 A typical way to setup ATLAS environment upon login is to put the following in
-$HOME/.bashrc. This is the same at both AFS and SDF.
+`$HOME/.bashrc`. This is the same at both AFS and SDF.
 
-```
+```bash
 export RUCIO_ACCOUNT="change_me"
 export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 alias setupATLAS='source $ATLAS_LOCAL_ROOT_BASE/user/atlasLocalSetup.sh'
@@ -152,7 +152,7 @@ You should use unix account password to login. Note that as SLAC retires the AFS
 environment in the next few years, this type of account (unix) may disappear.
 
 More info about using the AFS environment can be found at:
-https://confluence.slac.stanford.edu/display/Atlas/SLAC+Analysis+Computing+Facility
+`https://confluence.slac.stanford.edu/display/Atlas/SLAC+Analysis+Computing+Facility`
 
 ## Remote X-windows access
 

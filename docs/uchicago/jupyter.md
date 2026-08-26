@@ -13,7 +13,7 @@ You will need to make some choices in order to configure your JupyterLab
 notebook:
 
 1. Provide a notebook name that has no whitespace, using 30 characters or less
-   from the set [a-zA-Z0-9._-] to name your notebook.
+   from the set `[a-zA-Z0-9._-]` to name your notebook.
 2. You can request 1 to 16 CPU cores.
 3. You can request 1 to 32 GB of memory.
 4. You can request 0 to 7 GPU instances.
@@ -402,7 +402,7 @@ _Solution:_
 
 - Large environments with many dependencies can take several minutes
 - Check your internet connection (pixi downloads packages)
-- If truly stuck, interrupt (Ctrl+C) and try again
+- If truly stuck, interrupt (<kbd>Ctrl</kbd>+<kbd>C</kbd>) and try again
 - Consider breaking large environments into smaller, focused features
 
 **Problem: Wrong Python version**

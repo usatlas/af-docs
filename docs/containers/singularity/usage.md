@@ -2,7 +2,7 @@
 
 ## Singularity Usage Help
 
-You can find the Singularity usage by running **singularity -h**
+You can find the Singularity usage by running `singularity -h`
 
 ??? example "cent7a(SLAC)$ singularity -h"
 
@@ -79,8 +79,7 @@ You can find the Singularity usage by running **singularity -h**
     https://www.sylabs.io/
     ```
 
-The most frequently used commands are: **run**, **exec**, **shell** and
-**pull**.
+The most frequently used commands are: `run`, `exec`, `shell` and `pull`.
 
 For additional help or support, please visit <https://www.sylabs.io/docs/>. For
 quick start of version-3.5, you can refer to
@@ -90,48 +89,48 @@ quick start of version-3.5, you can refer to
 
 To make downloading images for build and pull faster and less redundant,
 Singularity uses a caching strategy. By default, Singularity will create a set
-of **cache folders** in your **$HOME** directory for docker layers, Cloud
-library images, and metadata, respectively:
+of **cache folders** in your `$HOME` directory for docker layers, Cloud library
+images, and metadata, respectively:
 
-- $HOME/.singularity/cache/library
-- $HOME/.singularity/cache/oci
-- $HOME/.singularity/cache/oci-tmp
+- `$HOME/.singularity/cache/library`
+- `$HOME/.singularity/cache/oci`
+- `$HOME/.singularity/cache/oci-tmp`
 
 which could take quite much space, depending the image size.
 
-You can set the envvar **SINGULARITY_CACHEDIR** to use other directory than the
-default cache directory **$HOME/.singularity/cache**.
+You can set the envvar `SINGULARITY_CACHEDIR` to use other directory than the
+default cache directory `$HOME/.singularity/cache`.
 
 ## Binding Paths and Mounts
 
 On default, Singularity will map the following directories on your host system
 to directories within the container:
 
-- $HOME
-- $PWD
-- /tmp
-- /proc
-- /sys
-- /dev
+- `$HOME`
+- `$PWD`
+- `/tmp`
+- `/proc`
+- `/sys`
+- `/dev`
 
-You can bind additional directories with option **-B | --bind**, such as:
+You can bind additional directories with option `-B | --bind`, such as:
 
-- `-B /data`: map /data on the host to /data on the container
+- `-B /data`: map `/data` on the host to `/data` on the container
 - or `-B /usr/local/share:/share,/data` (please note the **comma delimiter**) :
-  map /usr/local/share on the host to /share on the container, and map /data on
-  the host to /data on the container.
+  map `/usr/local/share` on the host to `/share` on the container, and map
+  `/data` on the host to `/data` on the container.
 
-You can also defined envvar **SINGULARITY_BINDPATH** (such as
+You can also defined envvar `SINGULARITY_BINDPATH` (such as
 `export SINGULARITY_BINDPATH="/data:/mnt"`) to bind paths.
 
 ## Examples
 
-You need define the envvar **SINGULARITY_CACHEDIR** to a directory to have
-enough space to accommodate the Singularity cache.
+You need define the envvar `SINGULARITY_CACHEDIR` to a directory to have enough
+space to accommodate the Singularity cache.
 
 ### Some Fun Exercise Examples
 
-There are some fun exercises to play with the singularity command. One simple
+There are some fun exercises to play with the `singularity` command. One simple
 example is "Hello World", which takes the container image from
 [the Singularity container hub](https://singularity-hub.org/).
 
@@ -195,7 +194,7 @@ The similar container image is also available on
 >                     ||     ||
 >     INFO:    Cleaning up image...
 
-As you see, singularity need download and convert the docker image into a
+As you see, `singularity` need download and convert the docker image into a
 singularity image file (sif) first.
 
 Singularity version 3 also supports container images on
@@ -269,7 +268,7 @@ Then you can process your tex file inside the container.
 
 There are many containers available for machine learning.
 
-For example, you can use sklearn containers.
+For example, you can use `sklearn` containers.
 
 > ```
 > lxplus$  singularity pull sklearn.sif docker://fastgenomics/sklearn:0.19.1-p36-v5
@@ -296,23 +295,22 @@ Atlas also provides machine learning containers on CVMFS:
 
 As the container path `/cvmfs/unpacked.cern.ch/registry.hub.docker.com/atlasml/`
 indicates, the above container is also available on the docker hub via
-**docker://**. But it would take quite a while (about an hour) to pull the
+`docker://`. But it would take quite a while (about an hour) to pull the
 container from the docker hub and convert into a singularity image file (sif).
 
 ## Using Containers through ARLB
 
-Prior to use ATLAS_LOCAL_ROOT_BASE (ALRB), you need install CVMFS first. Please
-refer to [the CernVM-FS Client Quick Start](https://cernvm.cern.ch/fs/) at CERN
-for CVMFS installation guide.
+Prior to use `ATLAS_LOCAL_ROOT_BASE` (ALRB), you need install CVMFS first.
+Please refer to [the CernVM-FS Client Quick Start](https://cernvm.cern.ch/fs/)
+at CERN for CVMFS installation guide.
 
-Then define the command **setupATLAS** as follows:
+Then define the command `setupATLAS` as follows:
 
     export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
     alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
 
-The option **-c** in the command **setupATLAS** takes container location or
-container keyword such as **slc5**, **slc6**, **centos6**, or **centos7**.
-Please check
+The option `-c` in the command `setupATLAS` takes container location or
+container keyword such as `slc5`, `slc6`, `centos6`, or `centos7`. Please check
 [ALRB Containers](https://twiki.atlas-canada.ca/bin/view/AtlasCanada/Containers)
 for more details.
 
@@ -357,8 +355,8 @@ For example, start a centos7 container with ALRB setup:
 >
 >     Singularity>
 
-If you do not need either ALRB or CVMFS, then run with tag **+noalrb** and
-**+nocvmfs** after the image location/keyword:
+If you do not need either ALRB or CVMFS, then run with tag `+noalrb` and
+`+nocvmfs` after the image location/keyword:
 
 >     lxplus$ setupATLAS  -c centos7+noalrb+nocvmfs
 >     ------------------------------------------------------------------------------
@@ -370,7 +368,7 @@ If you do not need either ALRB or CVMFS, then run with tag **+noalrb** and
 >     Singularity>
 
 If you like to start a Ubuntu OS without ALRB but with CVMFS, then run with tag
-**+noalrb** after the mage location/keyword:
+`+noalrb` after the mage location/keyword:
 
 >     lxplus$ setupATLAS -c library://ubuntu+noalrb
 >     INFO:    Convert SIF file to sandbox...

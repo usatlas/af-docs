@@ -35,28 +35,28 @@ kinit <cern_user>@CERN.CH
 ```
 
 as described in [CERN Kerberos ticket](#cern-kerberos-ticket). To list your
-files located at /eos/user/d/dschrute/:
+files located at `/eos/user/d/dschrute/`:
 
 ```bash
 ls /eos/user/d/dschrute
 # remember to replace "d/dschrute" with your own username at CERN.
 ```
 
-To create a new directory at /eos/user/d/dschrute/:
+To create a new directory at `/eos/user/d/dschrute/`:
 
 ```bash
 mkdir /eos/user/d/dschrute/new_dir
 # remember to replace "d/dschrute" with your own username at CERN.
 ```
 
-To copy files from /eos/user/d/dschrute/ to your current directory:
+To copy files from `/eos/user/d/dschrute/` to your current directory:
 
 ```bash
 cp /eos/user/d/dschrute/file.txt .
 # use `cp -r` if you need to copy a directory
 ```
 
-To copy files from /eos/user/d/dschrute/ to any path within your profile:
+To copy files from `/eos/user/d/dschrute/` to any path within your profile:
 
 ```bash
 cp /eos/user/d/dschrute/file.txt  $HOME/codingx/ # eg: /home/dschrute/codingx/
