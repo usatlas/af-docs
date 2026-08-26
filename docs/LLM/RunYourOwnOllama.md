@@ -48,20 +48,25 @@ curl --silent http://localhost:11434/api/chat -d '{
 ```python
 from ollama import Client
 
-msg_sys = {'role': 'system',
-           'content': 'You are a good assistant with knowledge on Chemistry'}
-msg_usr = {'role': 'user',
-           'content': 'Please balance chemical equation c2h6 + o2 -> co2 + h2o'}
+msg_sys = {
+    "role": "system",
+    "content": "You are a good assistant with knowledge on Chemistry",
+}
+msg_usr = {
+    "role": "user",
+    "content": "Please balance chemical equation c2h6 + o2 -> co2 + h2o",
+}
 
 client = Client()
-stream = client.chat(model='llama3.2',
-                     messages=[msg_sys, msg_usr],
-                     options={'temperature': 0.3,
-                              'num_predict': -1},
-                     stream=True)
+stream = client.chat(
+    model="llama3.2",
+    messages=[msg_sys, msg_usr],
+    options={"temperature": 0.3, "num_predict": -1},
+    stream=True,
+)
 
 for chunk in stream:
-    print(chunk['message']['content'], end='', flush=True)
+    print(chunk["message"]["content"], end="", flush=True)
 ```
 
 ## Running LLM Models via Ollama at SLAC AF
