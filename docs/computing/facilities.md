@@ -2,13 +2,13 @@
 
 ## Quick Comparison
 
-| Feature               | BNL               | UChicago              | SLAC                        |
-| --------------------- | ----------------- | --------------------- | --------------------------- |
-| **Batch System**      | HTCondor          | HTCondor              | SLURM                       |
-| **Interactive Nodes** | atl-dev01.bnl.gov | login.af.uchicago.edu | sdf-login.slac.stanford.edu |
-| **JupyterLab**        | ✓                 | ✓                     | ✓                           |
-| **GPUs**              | ✓                 | ✓                     | ✓                           |
-| **XCache**            | 60TB              | 37.5TB                | 20TB                        |
+| Feature               | BNL                 | UChicago                | SLAC                          |
+| --------------------- | ------------------- | ----------------------- | ----------------------------- |
+| **Batch System**      | HTCondor            | HTCondor                | SLURM                         |
+| **Interactive Nodes** | `atl-dev01.bnl.gov` | `login.af.uchicago.edu` | `sdf-login.slac.stanford.edu` |
+| **JupyterLab**        | ✓                   | ✓                       | ✓                             |
+| **GPUs**              | ✓                   | ✓                       | ✓                             |
+| **XCache**            | 60TB                | 37.5TB                  | 20TB                          |
 
 ---
 

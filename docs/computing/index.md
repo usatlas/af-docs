@@ -19,7 +19,7 @@ ATLAS physicists and computer scientists.
 Before accessing any facility, ensure you have:
 
 - [ ] An approved user account
-- [ ] SSH key pair generated (ed25519 or ecdsa recommended)
+- [ ] SSH key pair generated (`ed25519` or `ecdsa` recommended)
 - [ ] Public key uploaded to the facility portal
 - [ ] Basic familiarity with Linux/Unix command line
 - [ ] (Optional) X.509 grid certificate for ATLAS data access

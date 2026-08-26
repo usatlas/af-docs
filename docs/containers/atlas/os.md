@@ -34,15 +34,15 @@ command for running a container terminates the container after it completes its
 execution. As a result, any subsequent commands in the batch will run on the
 host machine instead of inside the container.
 
-The command `setupATLAS -c` supports the option **'-r'** (or export
-**ALRB_CONT_RUNPAYLOAD**) to run container payload commands. That is:
+The command `setupATLAS -c` supports the option `-r` (or export
+`ALRB_CONT_RUNPAYLOAD`) to run container payload commands. That is:
 
 ```shell
 setupATLAS -c centos7 -r "source /srv/myPayload.sh"
 
 ```
 
-Where the payload script _myPayload.sh_ is something like:
+Where the payload script `myPayload.sh` is something like:
 
 ```shell
 asetup AnalysisBase,24.2.11

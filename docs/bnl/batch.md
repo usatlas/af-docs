@@ -21,21 +21,25 @@ After the batch system migration into the shared pool at BNL in March 2019, it
 need not specify the group in the condor job description.
 
 Since the upgrade of dCache in January 2019, xrootd access to dCache file would
-require a valid grid proxy. You need specify **x509userproxy** in the job
+require a valid grid proxy. You need specify `x509userproxy` in the job
 description file with the following line:
 
-    x509userproxy = $ENV(X509_USER_PROXY)
+```
+x509userproxy = $ENV(X509_USER_PROXY)
+```
 
 after you have generated a valid grid proxy in an interactive machine.
 
-Please notice that the envvar **X509_USER_PROXY** has already been defined to
+Please notice that the envvar `X509_USER_PROXY` has already been defined to
 `$HOME/x509_u$UID` upon login. So actually you can also just pass all the env
-including the evnvar **X509_USER_PROXY** to the condor jobs without specifying
-**x509userproxy**, with the following line in the job description file:
+including the evnvar `X509_USER_PROXY` to the condor jobs without specifying
+`x509userproxy`, with the following line in the job description file:
 
-    GetEnv          = True
+```
+GetEnv          = True
+```
 
-In addition, please note that **rucio** is not recommended to be set up together
+In addition, please note that `rucio` is not recommended to be set up together
 with Atlas releases because of possible conflict between them. You had better
 use 2 separate sessions:
 
@@ -44,7 +48,9 @@ use 2 separate sessions:
 
 Or you could set up a rucio wrapper together with one release env, that is,
 
-    lsetup "asetup AnalysiisBase,21.2.129" "rucio -w"
+```sh
+lsetup "asetup AnalysiisBase,21.2.129" "rucio -w"
+```
 
 which set up both the release env of AnalysisBase,21.2.129 and a rucio wrapper,
 which does not provide python API.
@@ -54,20 +60,24 @@ which does not provide python API.
 If you are using EventLoop to submit your code to the Condor batch system you
 should replace your submission driver line with something like the following:
 
-    EL::CondorDriver driver;
-    job.options()->setString(EL::Job::optCondorConf, "getenv = true\naccounting_group = group_atlas.<institute>");
-    driver.submitOnly( job, "yourJobName");
+```cpp
+EL::CondorDriver driver;
+job.options()->setString(EL::Job::optCondorConf, "getenv = true\naccounting_group = group_atlas.<institute>");
+driver.submitOnly( job, "yourJobName");
+```
 
-You need replace the institute "&lt;institute&gt;" with your own institute (as
+You need replace the institute `<institute>` with your own institute (as
 assigned by ACF) here.
 
 ### Notice on using bash script in Condor
 
 Please be aware that aliases will not be expanded by default within script. To
-expand those aliases (such as **asetup**, **athena**), you need add the
-following line to your script prior to running `setupATLAS`:
+expand those aliases (such as `asetup`, `athena`), you need add the following
+line to your script prior to running `setupATLAS`:
 
-    shopt -s expand_aliases
+```sh
+shopt -s expand_aliases
+```
 
 ## HPC cluster at BNL
 

@@ -37,9 +37,9 @@ As stated on the page of
 [Singularity Desktop MacOS](https://sylabs.io/singularity-desktop-macos/), there
 are some limitations.
 
-Run **singularity -h** to find the full available commands and options. In
+Run `singularity -h` to find the full available commands and options. In
 comparison with the Singularity-3.5 on Linux, the Singularity on Mac OS misses
-many commands such as **inspect** and **instance**.
+many commands such as `inspect` and `instance`.
 
 ## Singularity on Windows
 
@@ -55,7 +55,7 @@ not available for other old Windows such as Windows 7.
 Please refer
 [the WSL installation guide for Windows 10/11](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-First enable the option feature **Microsoft-Windows-Subsystem-Linux**. Open
+First enable the option feature `Microsoft-Windows-Subsystem-Linux`. Open
 **PowerShell as Administrator** and run:
 
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
@@ -84,7 +84,7 @@ In order to install WSL2, ensure that you must be running Windows 10...
 or Windows 11.
 
 You can check your Windows version by opening **Command Prompt** and running the
-**ver** command.
+`ver` command.
 
 >     Microsoft Windows [Version 10.0.19045.3803]
 >     (c) 2020 Microsoft Corporation. All rights reserved.
@@ -97,7 +97,7 @@ Actually the Windows build information has already be displayed on the terminal
 top when the **Command Prompt** app is opened.
 
 You can also check the Windows build info in PowerShell with command
-**systeminfo**:
+`systeminfo`:
 
 >     PS C:\Users\Shuwei> systeminfo | Select-String "^OS Name","^OS Version"
 >
@@ -179,9 +179,9 @@ install it.
 #### Nameservers in WSL2 Linux
 
 In case the Windows machine is **behind a campus firewall**, the automatically
-generated file _/etc/resolv.conf_ would not work properly. In the case, you need
-override the file _/etc/resolv.conf_, which is actually a sym-link to
-_/mnt/wsl/resolv.conf_ by default.
+generated file `/etc/resolv.conf` would not work properly. In the case, you need
+override the file `/etc/resolv.conf`, which is actually a sym-link to
+`/mnt/wsl/resolv.conf` by default.
 
 Step-1: Inside the WSL2 Linux, run `ipconfig.exe /all | grep -A1 "DNS Servers"`
 to find the nameservrs on the host.
@@ -201,8 +201,8 @@ with **the above IPv4 DNS servers**.
 >     nameserver 130.199.128.31
 >     nameserver  130.199.1.1
 
-Step-3: Create a new file _/etc/wsl.conf_ with the following content, to prevent
-overrding _/etc/resolv.conf_ during WSL2 restart.
+Step-3: Create a new file `/etc/wsl.conf` with the following content, to prevent
+overrding `/etc/resolv.conf` during WSL2 restart.
 
 >     AlmaLinux9$ sudo cat > /etc/wsl.conf
 >     [network]
@@ -210,19 +210,19 @@ overrding _/etc/resolv.conf_ during WSL2 restart.
 
 ### Use the Installed Linux on Windows
 
-Open **PowerShell under a regular user** and run **wsl**:
+Open **PowerShell under a regular user** and run `wsl`:
 
 >     PS C:\Users\Shuwei> wsl
 >     yesw2000@Home-Dell660:/mnt/c/Users/Shuwei$ echo $0
 >     -bash
 >     yesw2000@Home-Dell660:/mnt/c/Users/Shuwei$
 
-which starts the Linux and enter **bash**.
+which starts the Linux and enter `bash`.
 
-You can also start the Linux by searching **wsl** or **bash** on the Windows
-Start Search Box and click on **wsl Run command** or **bash Run command**.
+You can also start the Linux by searching `wsl` or `bash` on the Windows Start
+Search Box and click on **wsl Run command** or **bash Run command**.
 
-If the Linux is already running, you can run "bash" to enter the Linux:
+If the Linux is already running, you can run `bash` to enter the Linux:
 
 >     PS C:\Users\Shuwei> wsl -l -v
 >       NAME            STATE           VERSION

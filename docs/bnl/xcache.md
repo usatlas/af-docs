@@ -12,7 +12,7 @@ The Xcache servers
   first access, thus improves the read performance for sequential access. If
   only partial content of a file is read, then only that part would cached.
 
-You can run the predefined command **Xcache_ls.py** to generate a clist file
+You can run the predefined command `Xcache_ls.py` to generate a clist file
 (containing a list of physicsl file paths) for given datasets, then use the
 clist in your jobs.
 
@@ -60,10 +60,10 @@ and pre-stage them to BNL using
 Xcache enables to access data remotely and also to cache them locally for faster
 access in future.
 
-The Xcache server at BNL is **root://xrootd03.usatlas.bnl.gov:1094/**.
+The Xcache server at BNL is `root://xrootd03.usatlas.bnl.gov:1094/`.
 
-Let us take the input file used in the SLAC example. At SLAC, the inputFile name
-for outside access (check the file _dset-outside.txt_ at SLAC) is
+Let us take the input file used in the SLAC example. At SLAC, the `inputFile`
+name for outside access (check the file `dset-outside.txt` at SLAC) is
 
 ```
 inputFile=root://griddev03.slac.stanford.edu:2094//xrootd/atlas/atlaslocalgroupdisk/rucio/data16_13TeV/f9/bd/DAOD_SUSY15.11525262._000003.pool.root.1

@@ -72,7 +72,7 @@ In addition, you can also use your web browser to download.
 
 #### Using curl to upload/download/delete
 
-curl is available everywhere. To use curl, follow these steps:
+`curl` is available everywhere. To use `curl`, follow these steps:
 
 1.  Create an alias to type less:
 
@@ -106,7 +106,7 @@ curl is available everywhere. To use curl, follow these steps:
 #### Use gfal2 tools to upload/download/delete
 
 You may need to setup the ATLAS environment (run `localSetupRucioClients`) to
-have the gfal2 tools in your PATH.
+have the gfal2 tools in your `PATH`.
 
 1. Upload:
 
@@ -140,7 +140,7 @@ have the gfal2 tools in your PATH.
 #### Use xrootd tools to upload/download/delete
 
 You may need to setup the ATLAS environment (run `localSetupRucioClients`) to
-have the xrootd tools in your PATH. These tools will mostly work with the root
+have the xrootd tools in your `PATH`. These tools will mostly work with the root
 protocol. Note that in a root URL, there is usually a double slash after the
 port number.
 

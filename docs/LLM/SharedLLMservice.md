@@ -13,23 +13,23 @@ service runs on host `sdfiana005.sdf.slac.stanford.edu` at port `11434`. If you
 are from outside of SLAC, you will need to use the following SSH port forwarding
 to access the service.
 
-```
+```sh
 ssh -L 11434:sdfiana005:11434 s3dflogin.slac.stanford.edu
 ```
 
 1. The OpenAI API accessing URL is `http://localhost:11434/v1/` (set
-   OPENAI_API_KEY to a non-empty string)
+   `OPENAI_API_KEY` to a non-empty string)
 2. The Ollama API accessing URL is `http://localhost:11434/`
 
 To check the available models, use the following command:
 
-```
+```sh
 curl -s http://localhost:11434/api/tags | jq '.["models"][]["name"]'
 ```
 
 To check the current running models, use the following command:
 
-```
+```sh
 curl -s http://localhost:11434/api/ps | jq '.["models"][]["name"]'
 ```
 
@@ -48,7 +48,7 @@ designed to:
   service. There will be a **gap** between the time the job is submitted and the
   time the job actually starts running. Use the following command to check the
   status of the Slurm job:
-    ```
+    ```sh
     curl -s http://localhost:11434/backend/state
     ```
 - Allow multiple users to share the same LLM service. The service allows a
@@ -67,9 +67,9 @@ quality (accuracy). In our experience:
   tasks. It uses about 20GB of the GPU memory. This leaves rooms for
   multiple-user activities, and/or running smaller models on the same GPU at the
   same time.
-- The `gemma3` models do not natively support OpenAI's three-role ("system",
-  "user", "assistant") in the message to the models (Ollama API also used these
-  three roles). They only support two roles ("user", "model"). The `gemma3`
+- The `gemma3` models do not natively support OpenAI's three-role (`system`,
+  `user`, `assistant`) in the message to the models (Ollama API also used these
+  three roles). They only support two roles (`user`, `model`). The `gemma3`
   models from Ollama added a template to seamlessly convert a three-role message
   to a two-role message.
 - The `gemma3` models do not support tool usage (AI agent) when using OpenAI API

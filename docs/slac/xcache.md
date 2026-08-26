@@ -6,14 +6,14 @@ access in future.
 The Xcache server at SLAC is `root://atlfax.slac.stanford.edu/`,
 
 We will try to cache the files located at BNL. Let us take the input file used
-in the BNL example. At BNL, the inputFile name is
+in the BNL example. At BNL, the `inputFile` name is
 
 ```bash
 inputFile=root://dcgftp.usatlas.bnl.gov:1096/pnfs/usatlas.bnl.gov/LOCALGROUPDISK/rucio/data18_13TeV/da/ea/DAOD_EXOT12.14278917._000001.pool.root.1
 ```
 
-The port `1096` is for inside access. For outside access, the port is 1094. So,
-the inputFile becomes
+The port `1096` is for inside access. For outside access, the port is `1094`.
+So, the `inputFile` becomes
 
 ```bash
 inputFile=root://dcgftp.usatlas.bnl.gov:1094/pnfs/usatlas.bnl.gov/LOCALGROUPDISK/rucio/data18_13TeV/da/ea/DAOD_EXOT12.14278917._000001.pool.root.1

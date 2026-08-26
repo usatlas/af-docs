@@ -25,9 +25,9 @@ CPU are available on the KNL cluster.
 
 The Jupyter environment provides several kernels and extensions. This includes:
 
-1. python2 with pyroot and uproot. By default, **AnalysisBase,21.2.111** is
-   loaded before the pyroot2 kernel is launched. To overwrite this, create a
-   file `$HOME/notebooks/.user_setups` in your home directory (even if your home
+1. python2 with pyroot and uproot. By default, `AnalysisBase,21.2.111` is loaded
+   before the pyroot2 kernel is launched. To overwrite this, create a file
+   `$HOME/notebooks/.user_setups` in your home directory (even if your home
    directory is in AFS)
 2. ROOT C++. The ATLAS environment is set before the kernel is launched. The
    overwrite method is the same as the above.

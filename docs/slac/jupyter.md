@@ -38,7 +38,7 @@ may be able to run it on SLAC's Jupyter infrastructure. To do so:
    prepare your instance. You can edit/paste whatever Shell script to the box to
    prepare launching your Jupyter environment.
 4. A backend launching script will "source" your Shell script. It expects that
-   after "sourcing", there is a command (or Shell function) called "jupyter" for
+   after "sourcing", there is a command (or Shell function) called `jupyter` for
    it to run. It will then run one of the following commands, `jupyter notebook`
    or `jupyter lab` (depend on whether you choose Jupyter Notebook or Jupyter
    Lab) to launch your Jupyter environment.

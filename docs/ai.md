@@ -142,11 +142,11 @@ See the
 
 ### Jupyter (your running notebook at UChicago)
 
-If you have a JupyterLab session running at af.uchicago.edu, your MCP client can
-drive it directly — listing cells, executing code, reading kernel output. The
-server runs inside your singleuser pod, so authentication reuses your existing
-notebook credential (JupyterHub API token with the `access:servers` scope for
-`jupyterhub.af.uchicago.edu`, or the per-pod URL token for the
+If you have a JupyterLab session running at `af.uchicago.edu`, your MCP client
+can drive it directly — listing cells, executing code, reading kernel output.
+The server runs inside your singleuser pod, so authentication reuses your
+existing notebook credential (JupyterHub API token with the `access:servers`
+scope for `jupyterhub.af.uchicago.edu`, or the per-pod URL token for the
 `af.uchicago.edu/jupyterlab` portal).
 
 See

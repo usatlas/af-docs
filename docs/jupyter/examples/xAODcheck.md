@@ -15,7 +15,7 @@ that we can use to learn the container types and container keys in an xAOD file.
 
 First, set up the environment for ATLAS Analysis
 
-```
+```sh
 export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 source $ATLAS_LOCAL_ROOT_BASE/user/atlasLocalSetup.sh
 asetup AnalysisBase,21.2.111
