@@ -19,7 +19,6 @@ exclude = [
     "https://.*.servicex.af.uchicago.edu/", # 503
     "https://twiki.cern.ch/", # Timeouts...
     "https://atlas-lgdm.cern.ch/LocalDisk_Usage/USER/RequestFormUsage/", # timeout, emailed Mayuko, waiting on response
-    "https://atlas-jupyter.sdcc.bnl.gov/", # timeout, see https://github.com/usatlas/af-docs/issues/132
 ]
 
 insecure = true
