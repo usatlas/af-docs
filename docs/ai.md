@@ -66,7 +66,7 @@ directly:
 | `atlas-analysis-coder`     | Writes Python analysis code (uproot, ServiceX, coffea, hist) following ATLAS conventions                           |
 | `atlas-docs-expert`        | Answers ATLAS software questions, pulling from [atlas-software.docs.cern.ch](https://atlas-software.docs.cern.ch/) |
 | `atlas-stats-expert`       | Builds statistical models: pyhf/cabinetry workspaces, TRExFitter configs, CLs limits                               |
-| `atlas-data-explorer`      | Finds datasets and replicas via the Rucio, AMI, and ATLAS Open Data MCP servers                                    |
+| `atlas-data-explorer`      | Finds datasets and replicas via the Rucio, AMI, and ATLAS Open Data CLI tools                                      |
 
 Skills by category:
 
@@ -93,52 +93,51 @@ Two skills for writing self-contained Python scripts and CLIs.
 
 ---
 
-## MCP servers
+## MCP servers: letting your assistant act on live systems
 
-The `atlas` plugin configures three
-[Model Context Protocol](https://modelcontextprotocol.io/) servers. Start them
-alongside your assistant session and it can query live ATLAS catalogs rather
-than rely on training data.
+Everything above (the plugins) teaches your assistant _how_ ATLAS analysis
+works. MCP ([Model Context Protocol](https://modelcontextprotocol.io/)) goes a
+step further: it lets the assistant actually _run_ things on real, live systems
+on your behalf, in the same conversation, instead of just describing commands
+for you to copy and run yourself.
 
-### Rucio
+For example, without MCP, you'd ask the assistant "where can I find dataset X?",
+it would tell you to run `rucio list-file-replicas ...`, and you'd copy that
+command, run it in a terminal, then paste the output back so it could continue.
+With MCP connected, the assistant runs that Rucio lookup itself and uses the
+real result directly — one less round trip, and no need for you to already know
+the right command.
 
-Dataset and file replica discovery.
+### AF MCP Platform (UChicago)
 
-```bash
-pixi exec rucio-mcp serve --read-only
-```
+UChicago AF runs one such MCP server: the **AF MCP Platform**. It gives a
+connected assistant secure, on-your-behalf access to Rucio (find/download
+datasets), AMI (dataset metadata), HTCondor (check or submit batch jobs), your
+running JupyterLab notebook, and the AF filesystem — without you having to run
+any commands yourself.
 
-`RUCIO_ACCOUNT` has no default. Set it before launching:
+To use it:
 
-```bash
-export RUCIO_ACCOUNT=yourusername   # your CERN/grid username
-export RUCIO_AUTH_TYPE=x509_proxy   # or "oidc" or "userpass"
-voms-proxy-init --voms atlas
-```
+1. **Install the `af-uchicago` plugin in Claude Code** (see
+   [Installation](#installation) above) — it already comes configured with this
+   server, so there is nothing else to set up. (Using Cursor, Codex, or another
+   tool, or want to connect without installing the plugin? Point it at
+   `https://mcp.af.uchicago.edu/mcp` directly — see your tool's docs for how to
+   add an MCP server by URL.) The first time it's actually used, most tools will
+   pop open a browser window asking you to log in with your usual AF credentials
+   — that's it, no passwords or tokens to copy anywhere.
+2. **Link your identity**, once, at
+   `https://mcp-portal.af.uchicago.edu/identities/`. This tells the platform
+   which ATLAS/CERN account to act as when it talks to Rucio, AMI, or HTCondor
+   for you. Skip this step and the connection still works, but grid-dependent
+   tools (Rucio, AMI, HTCondor) will fail with an authentication error until you
+   link your identity — link it before relying on those.
 
-See the [rucio-mcp documentation](https://rucio-mcp.readthedocs.io/en/latest/)
-for authentication options.
-
-### AMI
-
-Dataset tags, cross-sections, and generator parameters from AMI.
-
-```bash
-pixi exec ami-mcp serve
-```
-
-See the [ami-mcp documentation](https://ami-mcp.readthedocs.io/en/latest/).
-
-### ATLAS Open Data
-
-The ATLAS Open Data catalog, for educational and public datasets.
-
-```bash
-uvx atlasopenmagic-mcp serve
-```
-
-See the
-[atlasopenmagic-mcp repository](https://github.com/atlas-outreach-data-tools/atlasopenmagic-mcp).
+If your AI tool can't open a browser to log in (for example, it's running on a
+remote server with no display), generate a long-lived access token instead at
+`https://mcp-portal.af.uchicago.edu/tokens/` and use it in place of the browser
+login. The same portal (`https://mcp-portal.af.uchicago.edu/`) is also where you
+can review and manage your connection.
 
 ### Jupyter (your running notebook at UChicago)
 
