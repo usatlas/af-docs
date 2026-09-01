@@ -126,17 +126,16 @@ To use it:
    add an MCP server by URL.) The first time it's actually used, most tools will
    pop open a browser window asking you to log in with your usual AF credentials
    — that's it, no passwords or tokens to copy anywhere.
-2. **Link your identity**, once, at
-   `https://mcp-portal.af.uchicago.edu/identities/`. This tells the platform
-   which ATLAS/CERN account to act as when it talks to Rucio, AMI, or HTCondor
-   for you. Skip this step and the connection still works, but grid-dependent
-   tools (Rucio, AMI, HTCondor) will fail with an authentication error until you
-   link your identity — link it before relying on those.
+2. [Link your identity](https://mcp-portal.af.uchicago.edu/identities/). This
+   tells the platform which ATLAS/CERN account to act as when it talks to Rucio,
+   AMI, or HTCondor for you. Skip this step and the connection still works, but
+   grid-dependent tools (Rucio, AMI, HTCondor) will fail with an authentication
+   error until you link your identity — link it before relying on those.
 
 If your AI tool can't open a browser to log in (for example, it's running on a
 remote server with no display), generate a long-lived access token instead at
-`https://mcp-portal.af.uchicago.edu/tokens/` and use it in place of the browser
-login. The same portal (`https://mcp-portal.af.uchicago.edu/`) is also where you
+https://mcp-portal.af.uchicago.edu/tokens/ and use it in place of the browser
+login. The same [portal](https://mcp-portal.af.uchicago.edu/) is also where you
 can review and manage your connection.
 
 ### Jupyter (your running notebook at UChicago)
