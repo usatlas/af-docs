@@ -19,7 +19,7 @@ There are two ways to login to S3DF.
     1. Login to the bastion host `ssh <username>@s3dflogin.slac.stanford.edu`
     2. Then login to the actual interactive pool node `ssh iana` to do your
        work.
-    3. SLAC login now require Multi-Factor Authentication (MFA). Checkout 
+    3. SLAC login now require Multi-Factor Authentication (MFA). Checkout
        `https://s3df.slac.stanford.edu/#/sshmfa_user` on how to setup MFA, and
        how to use SSH KEY for time-limited passwordless login.
 - **Login to S3DF web portal**
