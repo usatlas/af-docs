@@ -19,7 +19,7 @@ you point it at.
    choose **Services** → **BinderHub** in the
    [AF Portal](https://af.uchicago.edu/)) and log in with your AF account.
 2. Optionally open **Advanced setting - sites and resource customizations** to
-   change the resources for your notebook (see
+   request GPUs or change the CPU and memory for your notebook (see
    [Resources](#resources-advanced-setting) below).
 3. Under **Curated Repositories**, choose an image from the **Select a curated
    repo...** dropdown. BinderHub fills in the repository and Git ref for you and
@@ -29,7 +29,8 @@ you point it at.
 
 Your running servers are listed on the JupyterHub home page at
 [https://jupyterhub.af.uchicago.edu/hub/home](https://jupyterhub.af.uchicago.edu/hub/home),
-where you can reopen or stop them.
+where you can reopen or stop them. The **JupyterHub Home** button in the
+advanced settings panel also takes you there.
 
 ## Curated repositories
 
@@ -53,12 +54,23 @@ install additional packages with `pixi`.
 Click **show** next to **Advanced setting - sites and resource customizations**
 to customize your notebook's resources before launching:
 
+- **Sites**: the cluster your notebook runs on. Keep the default, **UC AF**,
+  unless you have a reason to use another site.
+- **GPU Model - name (avail/total)**: the GPU model to request. Each entry shows
+  how many GPUs of that model are free out of the total, for example
+  `NVIDIA-GeForce-RTX-2080-Ti (21/24)`. Models with none free are greyed out.
+  Choose **Any (auto-assign GPU)** if you don't need a specific model.
+- **GPU count** (the number box next to the GPU model): how many GPUs to
+  request. Leave it at `0` for a CPU-only notebook.
 - **QoS — Guaranteed**: check this box to reserve a fixed amount of CPU and
   memory for your notebook. This enables the **CPU** and **Memory** fields.
 - **CPU**: the number of CPU cores to reserve (1 to 32).
 - **Memory**: the amount of memory to reserve, in GB.
 
-Please request only the resources you need.
+The GPU list and availability depend on the selected site, and models like
+`NVIDIA-A100-SXM4-40GB-MIG-1g.5gb` are slices (MIG instances) of a larger GPU.
+Please request only the resources you need, especially GPUs, which are shared by
+everyone on the facility.
 
 ## Launching your own repository
 
