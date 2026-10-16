@@ -54,8 +54,10 @@ install additional packages with `pixi`.
 Click **show** next to **Advanced setting - sites and resource customizations**
 to customize your notebook's resources before launching:
 
-- **Sites**: the cluster your notebook runs on. Keep the default, **UC AF**,
-  unless you have a reason to use another site.
+- **Sites**: choose which cluster your notebook runs on. The default is **UC
+  AF**; you can also choose **ssl** or **nrp** (the
+  [National Research Platform](https://nrp.ai/)), for example if the GPU you
+  need is not available on the UC AF.
 - **GPU Model - name (avail/total)**: the GPU model to request. Each entry shows
   how many GPUs of that model are free out of the total, for example
   `NVIDIA-GeForce-RTX-2080-Ti (21/24)`. Models with none free are greyed out.
