@@ -13,6 +13,12 @@ kernel that is running on the University of Chicago Analysis Facility (UC AF).
 This allows you to work on your Jupyter notebooks using VS Code while utilizing
 the computational resources of UC AF.
 
+!!! warning "AF Portal JupyterLab is deprecated"
+
+    The steps below use the AF Portal JupyterLab, which is deprecated and will
+    be removed on December 1st. Please launch notebooks with
+    [BinderHub](binderhub.md) instead.
+
 !!! note
 
     Make sure your JupyterLab instance is running and remains active while you are

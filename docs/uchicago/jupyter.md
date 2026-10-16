@@ -1,5 +1,11 @@
 # The UChicago JupyterLab
 
+!!! warning "Deprecated: removed on December 1st"
+
+    The AF Portal JupyterLab service is deprecated and will be removed on
+    December 1st. Please use [BinderHub](binderhub.md) instead, which offers
+    the same images as curated repositories.
+
 To support machine learning code development, our users can deploy one or more
 private JupyterLab applications.
 
@@ -452,10 +458,10 @@ The MCP server **runs inside your singleuser pod** — there is no shared servic
 to log into. That has two practical consequences depending on which JupyterLab
 you launched:
 
-| Surface                                                   | Endpoint                        | Token                                                                                            | Token lifetime                                             | Endpoint lifetime                                                                                                         |
-| --------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `https://jupyterhub.af.uchicago.edu` (BinderHub-launched) | `/user/<name>/proxy/3001/mcp`   | JupyterHub API token, scope **`access:servers`** (or the tighter `access:servers!user=<name>`)   | Durable — mint once at `/hub/token`, reuse across spawns   | Only while your server is running; if culled, the endpoint 404s until you spawn again, then the **same** token reconnects |
-| `https://af.uchicago.edu/jupyterlab` (af-portal-launched) | `<notebook_id>.<af-domain>/mcp` | The `?token=…` from your notebook URL — this is the singleuser server's `IdentityProvider` token | Generated per pod; **gone forever** when the pod is reaped | Same as token lifetime                                                                                                    |
+| Surface                                                               | Endpoint                        | Token                                                                                            | Token lifetime                                             | Endpoint lifetime                                                                                                         |
+| --------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `https://jupyterhub.af.uchicago.edu` (BinderHub-launched)             | `/user/<name>/proxy/3001/mcp`   | JupyterHub API token, scope **`access:servers`** (or the tighter `access:servers!user=<name>`)   | Durable — mint once at `/hub/token`, reuse across spawns   | Only while your server is running; if culled, the endpoint 404s until you spawn again, then the **same** token reconnects |
+| `https://af.uchicago.edu/jupyterlab` (af-portal-launched, deprecated) | `<notebook_id>.<af-domain>/mcp` | The `?token=…` from your notebook URL — this is the singleuser server's `IdentityProvider` token | Generated per pod; **gone forever** when the pod is reaped | Same as token lifetime                                                                                                    |
 
 Both designs are intentional: the credential is scoped to your identity, the
 endpoint is scoped to one running compute. There is **no** independent,
@@ -509,6 +515,12 @@ been culled. Open your JupyterHub home page to respawn; the same token will
 reconnect immediately.
 
 ### From `https://af.uchicago.edu/jupyterlab` (af-portal-launched notebooks)
+
+!!! warning
+
+    The AF Portal JupyterLab is deprecated and will be removed on December 1st.
+    Use a [BinderHub](binderhub.md)-launched notebook and the steps above
+    instead.
 
 The portal gives each notebook its own subdomain plus a token embedded in the
 URL. There is **no separate token to mint** — the URL token _is_ the credential.
