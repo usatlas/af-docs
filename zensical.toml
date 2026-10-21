@@ -91,7 +91,8 @@ nav = [
           { Overview = "jupyter/info.md" },
           { "Access per Site" = [
               { BNL = "bnl/jupyter.md" },
-              { UChicago = "uchicago/jupyter.md" },
+              { UChicago = "uchicago/binderhub.md" },
+              { "UChicago JupyterLab (deprecated)" = "uchicago/jupyter.md" },
               { SLAC = "slac/jupyter.md" },
           ]},
           { Advanced = [

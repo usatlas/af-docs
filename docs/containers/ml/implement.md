@@ -87,7 +87,13 @@ run the ML images at the command line.
 
 === "UChicago"
 
-    Currently the UChicago JupyterLab servers don't allow custom containers when creating a new notebook. This is planning on being updated soon. In the meantime, the `ml-platform-cpu:latest` or `ml-platform-gpu:latest` containers shown in the `Image` dropdown box does have all packages necessary for running the ML Tutorial material.
+    Use the following steps to run the ML container through the UChicago [BinderHub](../../uchicago/binderhub.md):
+
+    1. Open [https://binderhub.af.uchicago.edu/](https://binderhub.af.uchicago.edu/) and log in with your AF account
+    2. Under **Curated Repositories**, select `ml-platform:latest`
+    3. Wait for the server to start; JupyterLab opens in your browser
+
+    The `ml-platform` image has all packages necessary for running the ML Tutorial material.
 
 === "SLAC"
 
