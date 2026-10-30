@@ -78,12 +78,12 @@ nav = [
               { "OS Containers" = "containers/atlas/os.md" },
               { "Release Containers" = "containers/atlas/release.md" },
           ]},
-          { Singularity = [
-              { Introduction = "containers/singularity/introduction.md" },
-              { Installation = "containers/singularity/installation.md" },
-              { Usage = "containers/singularity/usage.md" },
-              { Images = "containers/singularity/images.md" },
-              { "Grid Jobs" = "containers/singularity/grid.md" },
+          { Apptainer = [
+              { Introduction = "containers/apptainer/introduction.md" },
+              { Installation = "containers/apptainer/installation.md" },
+              { Usage = "containers/apptainer/usage.md" },
+              { Images = "containers/apptainer/images.md" },
+              { "Grid Jobs" = "containers/apptainer/grid.md" },
           ]},
       ]},
 
