@@ -85,6 +85,7 @@ nav = [
               { Images = "containers/apptainer/images.md" },
               { "Grid Jobs" = "containers/apptainer/grid.md" },
           ]},
+          { "Singularity (deprecated)" = "containers/singularity.md" },
       ]},
 
       { Jupyter = [
