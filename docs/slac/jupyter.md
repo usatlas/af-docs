@@ -42,12 +42,12 @@ may be able to run it on SLAC's Jupyter infrastructure. To do so:
    it to run. It will then run one of the following commands, `jupyter notebook`
    or `jupyter lab` (depend on whether you choose Jupyter Notebook or Jupyter
    Lab) to launch your Jupyter environment.
-5. Below are example scripts to prepare for launching Jupyter from a Singularity
+5. Below are example scripts to prepare for launching Jupyter from an Apptainer
    container:
 
 ```
-export SINGULARITY_IMAGE=/sdf/data/atlas/u/$(id -un)/.../my_singularity_image.sif
-function jupyter() { singularity exec --nv -B /sdf,/cvmfs ${SINGULARITY_IMAGE} jupyter $@ }
+export MY_IMAGE=/sdf/data/atlas/u/$(id -un)/.../my_apptainer_image.sif
+function jupyter() { apptainer exec --nv -B /sdf,/cvmfs ${MY_IMAGE} jupyter $@ }
 ```
 
 or from a Conda environment (assuming Anaconda 3 is installed at ~/anaconda3,
