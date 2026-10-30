@@ -1,9 +1,6 @@
 name: Trigger AI Factory GitOps (Docs)
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 concurrency:
