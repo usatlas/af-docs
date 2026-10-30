@@ -1,50 +1,44 @@
-# Installation of Singularity
+# Installation of Apptainer
 
-## Singularity on Linux OS
+## Apptainer on Linux OS
 
-Most Linux Distros should come with the Singularity. For example, Singularity is
-already available on BNL/SLAC machines.
+Apptainer is already available on the BNL, SLAC and UChicago analysis facility
+machines. It is also provided on CVMFS and used automatically by
+`setupATLAS -c`, for example:
 
-    cent7a(SLAC)$ singularity --version
-    singularity version 3.5.3-1.1.el7
+    /cvmfs/atlas.cern.ch/repo/containers/sw/apptainer/x86_64-el7/1.3.4/bin/apptainer
 
-    attsub01(BNL)$ singularity --version
-    2.6.1-dist
+Check the installed version with:
+
+    apptainer --version
 
 If it does not come with your Linux OS, you can find the installation
-instruction for the version of 3.5 (the latest one currently):
+instructions (EPEL/RPM packages, Debian packages, Ubuntu PPA, or from source)
+at:
 
-<https://sylabs.io/guides/3.5/admin-guide/installation.html>
+<https://apptainer.org/docs/admin/main/installation.html>
 
-The singularity maintained in Linux distribution repos (via apt or yum) tends to
-be older. If you like to install the latest version, you can visit
-[the gitlab source site](https://github.com/sylabs/singularity/releases) to
-install from the source.
+The latest releases are available on
+[the GitHub release page](https://github.com/apptainer/apptainer/releases).
 
-## Singularity on Mac OS
+## Apptainer on Mac OS
 
-Since Mac OS does not use Linux kernel, the Singularity for Linux does not work
-here. However, a new Singularity Desktop for Mac OS has been developed to take
-Linux-based containers. The installation instruction can be found
-[here](https://sylabs.io/singularity-desktop-macos/). It is still a beta
-release, and distributed as a DMG file (Mac OS disk image). The current beta
-release version is:
+Since Mac OS does not use Linux kernel, Apptainer cannot run natively and needs
+a Linux virtual machine. The Apptainer project recommends
+[Lima](https://lima-vm.io/), which works on both Apple Silicon and Intel Macs:
 
-    MacOS$ singularity --version
-    singularity version 3.3.0-rc.1.658.g7427b73f1.dirty
+    MacOS$ brew install lima
+    MacOS$ limactl start template://apptainer
+    MacOS$ limactl shell apptainer
 
-As stated on the page of
-[Singularity Desktop MacOS](https://sylabs.io/singularity-desktop-macos/), there
-are some limitations.
+By default, the host home directory is mounted read-only inside the VM. See
+[the Apptainer installation guide for Mac](https://apptainer.org/docs/admin/main/installation.html#mac)
+for more details, including writable mounts and GPU support.
 
-Run `singularity -h` to find the full available commands and options. In
-comparison with the Singularity-3.5 on Linux, the Singularity on Mac OS misses
-many commands such as `inspect` and `instance`.
+## Apptainer on Windows
 
-## Singularity on Windows
-
-In order to use Singularity on Windows, you need install a Linux distro first.
-It could be achieved through
+In order to use Apptainer on Windows, you need install a Linux distro first. It
+could be achieved through
 [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/faq)
 without involving a Virtual Machine. **WSL** is a new Windows 10 feature that
 enables you to run native Linux command-line tools directly on Windows. So it is
@@ -233,7 +227,9 @@ If the Linux is already running, you can run `bash` to enter the Linux:
 After all terminals associated with the Linux have been closed, the running
 Linux will stop then.
 
-### Singularity Installation on WSL2
+### Apptainer Installation on WSL2
 
-Start the Linux distro on Windows, then install Singularity as the same ways as
-on the Linux OS.
+Start the Linux distro on Windows, then install Apptainer as the same ways as on
+the Linux OS. See
+[the Apptainer installation guide for Windows](https://apptainer.org/docs/admin/main/installation.html#windows)
+for more details, including GPU support.
