@@ -8,9 +8,8 @@ you point it at.
 !!! warning "Replacing the AF Portal JupyterLab"
 
     The JupyterLab service in the AF Portal (**Services** → **JupyterLab**) is
-    deprecated and will be removed on December 1st. Please move your work to
-    BinderHub. See [The UChicago JupyterLab](jupyter.md) for the deprecated
-    service.
+    no longer available. Please move your work to BinderHub. See
+    [The UChicago JupyterLab](jupyter.md) for the retired service.
 
 ## How to launch a notebook
 
@@ -45,7 +44,7 @@ pick one of these:
 | `ml-platform:latest` | [`maniaclab/ml_platform`](https://github.com/maniaclab/ml_platform) (`main`)                         | Latest `ml_platform` machine learning image (recommended)  |
 | `ml-platform:2026.5` | [`maniaclab/ml_platform`](https://github.com/maniaclab/ml_platform) (`v2026.5.15`)                   | Pinned `ml_platform` release                               |
 
-These are the same images offered by the AF Portal JupyterLab. See
+These are the same images previously offered by the AF Portal JupyterLab. See
 [Docker Images](jupyter.md#docker-images) for what each one contains and how to
 install additional packages with `pixi`.
 
