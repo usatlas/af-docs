@@ -10,7 +10,7 @@ Brookhaven National Lab has two types of accounts.
 ## Full SDCC Account
 
 The main site for new user sign-up for a full SDCC account is here:
-[BNL New User Account](https://www.sdcc.bnl.gov/information/getting-started/new-user-account)
+[BNL New User Account](https://useraccount.sdcc.bnl.gov/new-user)
 
 Applying for a BNL computing account is a multi-step process. You will need to
 go through the following steps:

@@ -2,7 +2,7 @@
 
 ## Containers on CVMFS
 
-There are a few singularity containers accessible by keyword `slc5`, `slc6`,
+There are a few Apptainer containers accessible by keyword `slc5`, `slc6`,
 `centos6` and `centos7` through command `setupATLAS -c`. There are many other
 images available under `/cvmfs/unpacked.cern.ch/`. If this CVMFS path is not
 visible, please add this mount point to the CVMFS client on your computer.
@@ -47,11 +47,10 @@ are for machine learning. For Atlas release containers, they are under
 Let us take an example of release AthAnalysis,2.2.115 under
 `/cvmfs/unpacked.cern.ch/registry.hub.docker.com/atlas/`
 
->     lxplus$ singularity exec -c /cvmfs/unpacked.cern.ch/registry.hub.docker.com/atlas/athanalysis:21.2.115/release_setup.sh bash
->     singularity exec -c /cvmfs/unpacked.cern.ch/registry.hub.docker.com/atlas/athanalysis:21.2.115 bash
->     Singularity> ls /home/atlas
+>     lxplus$ apptainer exec -c /cvmfs/unpacked.cern.ch/registry.hub.docker.com/atlas/athanalysis:21.2.115 bash
+>     Apptainer> ls /home/atlas
 >     release_setup.sh
->     Singularity> source /home/atlas/release_setup.sh
+>     Apptainer> source /home/atlas/release_setup.sh
 >     Configured GCC from: /opt/lcg/gcc/8.3.0-cebb0/x86_64-centos7/bin/gcc
 >     Taking LCG releases from: /opt/lcg
 >     Taking Gaudi from: /usr/GAUDI/21.2.115/InstallArea/x86_64-centos7-gcc8-opt
@@ -72,12 +71,17 @@ example, you can put a keyword `atlas/` under the search field as shown below:
 Click on the found container, it will provides the pull command instruction and
 sometimes also a brief description.
 
-## Containers on Singularity Hub and Library
+## Containers on Other Registries
 
-There are many container images on the Singularity Hub and Library.
+Apptainer can pull images from any OCI-compliant registry, such as the
+[GitHub Container Registry](https://github.com/features/packages) (`ghcr.io`) or
+[the CERN GitLab registry](https://gitlab.cern.ch/) (`gitlab-registry.cern.ch`),
+using the `docker://` or `oras://` prefix. See
+[Support for Docker and OCI Containers](https://apptainer.org/docs/user/main/docker_and_oci.html)
+for more details.
 
-- Singularity Hub: <https://singularity-hub.org/>. Click "Collections" on the
-  top menu to search by **Label**, **Tag** or **App** name.
-- Singularity Library: <https://cloud.sylabs.io/library>. It is not supported in
-  Singularity version 2. Put keyword in the search field on the very top to
-  search for your wanted container.
+!!! note
+
+    The Singularity Hub (`shub://`) and the Sylabs Container Library
+    (`library://`) are no longer available. Use `docker://` or `oras://`
+    sources instead.

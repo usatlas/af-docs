@@ -67,6 +67,38 @@ If you used the `ed25519` key type with the default location:
 - **Private key**: `~/.ssh/id_ed25519`
 - **Public key**: `~/.ssh/id_ed25519.pub`
 
+### Do Not Store SSH Keys on Shared Clusters
+
+The analysis facilities are **shared systems**. Your home directory lives on a
+shared filesystem that is backed up, accessible to system administrators, and
+exposed if your account or the system is ever compromised. For this reason:
+
+!!! danger "Do Not Generate Keys on the Cluster for Other Services"
+
+    Do **not** run `ssh-keygen` on a facility login node and then add the
+    resulting public key to GitHub, CERN GitLab, another facility, or any other
+    service. Doing so leaves a private key on a shared system that grants
+    access to all of your repositories and accounts, often without a
+    passphrase, and typically long after you have forgotten it is there.
+
+    Likewise, never copy your personal private key (e.g. `~/.ssh/id_ed25519`)
+    from your laptop to a facility.
+
+Instead, use [agent forwarding](#agent-forwarding) so that tools like `git` on
+the cluster can use the key held on your local machine.
+
+!!! tip "Already Have a Key on the Cluster?"
+
+    If you previously generated a key on a facility and added it to a service:
+
+    1. Remove the corresponding public key from that service (for GitHub,
+       under **Settings → SSH and GPG keys**).
+    2. Delete the key pair from the cluster, e.g.
+       `rm ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub`. Be careful not to remove
+       `~/.ssh/authorized_keys` or `~/.ssh/config` if they exist.
+    3. Set up [agent forwarding](#agent-forwarding) from your local
+       machine instead.
+
 ---
 
 ## Uploading Your Public Key
@@ -130,10 +162,23 @@ instead of the full `ssh <username>@login.af.uchicago.edu`.
 
 ### SSH Agent Setup
 
-To avoid entering your passphrase repeatedly, add your key to the SSH agent:
+`ssh-agent` is a small program that runs on your **local machine** and holds
+your decrypted private keys in memory. You unlock your key once per session, and
+`ssh` asks the agent to sign login requests on your behalf. Your private key
+never leaves your machine, and you do not have to type your passphrase on every
+connection.
+
+To add your key to the agent:
 
 ```sh
 ssh-add ~/.ssh/id_ed25519
+```
+
+You will be prompted for your passphrase once. To confirm the key was loaded,
+list the keys the agent currently holds:
+
+```sh
+ssh-add -l
 ```
 
 !!! tip "SSH Agent Error"
@@ -151,6 +196,62 @@ ssh-add ~/.ssh/id_ed25519
     ```
 
     Then try the `ssh-add` command again.
+
+!!! tip "Limit How Long Keys Stay Unlocked"
+
+    You can give keys a lifetime so they are removed from the agent
+    automatically, for example after 8 hours:
+
+    ```sh
+    ssh-add -t 8h ~/.ssh/id_ed25519
+    ```
+
+    To remove all keys from the agent immediately, run `ssh-add -D`.
+
+### Agent Forwarding
+
+Agent forwarding lets programs running on a remote host (such as `git` on a
+login node) use the keys held by the agent on your local machine. This is the
+recommended way to authenticate to services like GitHub or CERN GitLab from an
+analysis facility, because no private key ever needs to exist on the cluster.
+
+Enable it only for the facility hosts you trust by adding `ForwardAgent yes` to
+that host's entry in `~/.ssh/config`, as in the UChicago example above.
+
+Alternatively, you can enable forwarding for a single connection by passing the
+`-A` flag to `ssh`:
+
+```sh
+ssh -A <username>@login.af.uchicago.edu
+```
+
+This is handy if you only occasionally need your keys on the remote host, since
+forwarding stays off unless you ask for it.
+
+Once connected, you can check that forwarding works:
+
+```sh
+ssh-add -l                # should list your local key(s)
+ssh -T git@github.com     # should greet you by your GitHub username
+```
+
+If `ssh-add -l` on the remote host reports that it cannot connect to the agent,
+make sure the key is loaded in your **local** agent and that you connected using
+the host alias with `ForwardAgent yes` (or passed `-A`).
+
+!!! warning "Only Forward Your Agent to Hosts You Trust"
+
+    While you are connected, anyone with administrative (root) access on the
+    remote host can ask your forwarded agent to sign requests as you. They
+    cannot copy your private key, but they can use it for as long as your
+    session is open. To limit this risk:
+
+    - Set `ForwardAgent yes` only on specific `Host` entries, **never** under
+      `Host *`.
+    - Consider adding keys with `ssh-add -c`, which asks you to confirm on your
+      local machine each time the key is used (requires an `ssh-askpass`
+      program).
+    - Disconnect sessions you are no longer using.
 
 ---
 

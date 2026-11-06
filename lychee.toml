@@ -20,6 +20,9 @@ exclude = [
     "https://twiki.cern.ch/", # Timeouts...
     "https://atlas-lgdm.cern.ch/LocalDisk_Usage/USER/RequestFormUsage/", # timeout, emailed Mayuko, waiting on response
     "https://twiki.atlas-canada.ca/", # Timeouts...
+    "https://mcp-portal.af.uchicago.edu/", # 503, temporary: remove once back up (#147)
+    "https://jupyterhub.af.uchicago.edu/hub/token", # 503, temporary: remove once back up (#147)
+    "https://coffea.af.uchicago.edu/", # timeout, temporary: remove once back up (#147)
 ]
 
 insecure = true

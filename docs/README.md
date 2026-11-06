@@ -105,7 +105,7 @@ unix systems and storage.
     Detailed information on container-based data processing and how to use them
     at AFs
 
-    [:octicons-arrow-right-24: View Docs](containers/singularity/introduction.md)
+    [:octicons-arrow-right-24: View Docs](containers/apptainer/introduction.md)
 
 - :material-microsoft-visual-studio-code:{ .lg .middle } **Using VSCode**
 

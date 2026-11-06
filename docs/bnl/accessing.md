@@ -140,10 +140,10 @@ sessions.
 
 Please be aware that the executable or library built on Alma9 machines cannot
 run on CentOS7 machines because of the system glibc library difference. To use
-old CentOS7 releases, you can use [singularity](https://sylabs.io/singularity/)
-to compile your package(s) within CentOS7 container. The command
-`setupATLAS -c CentOS7` could help set up such a container, you would get
-something like:
+old CentOS7 releases, you can use
+[Apptainer](../containers/apptainer/introduction.md) to compile your package(s)
+within CentOS7 container. The command `setupATLAS -c CentOS7` could help set up
+such a container, you would get something like:
 
 ```
      ------------------------------------------------------------------------------
