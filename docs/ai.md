@@ -140,17 +140,16 @@ can review and manage your connection.
 
 ### Jupyter (your running notebook at UChicago)
 
-If you have a JupyterLab session running at `af.uchicago.edu`, your MCP client
-can drive it directly — listing cells, executing code, reading kernel output.
-The server runs inside your singleuser pod, so authentication reuses your
-existing notebook credential (JupyterHub API token with the `access:servers`
-scope for `jupyterhub.af.uchicago.edu`, or the per-pod URL token for the
-`af.uchicago.edu/jupyterlab` portal).
+If you have a notebook server running at `jupyterhub.af.uchicago.edu` (launched
+from [BinderHub](uchicago/binderhub.md)), your MCP client can drive it directly
+— listing cells, executing code, reading kernel output. The server runs inside
+your singleuser pod, so authentication reuses your existing notebook credential
+(a JupyterHub API token with the `access:servers` scope for
+`jupyterhub.af.uchicago.edu`).
 
 See
-[Connecting an MCP client to your notebook](uchicago/jupyter.md#connecting-an-mcp-client-to-your-notebook)
-for the full setup, including the difference in token lifetime between the two
-launch surfaces.
+[Connecting an MCP client to your notebook](uchicago/binderhub.md#connecting-an-mcp-client-to-your-notebook)
+for the full setup.
 
 ---
 
@@ -217,9 +216,9 @@ served by the same NRP model.
 ### Step 3 — launch a BinderHub notebook
 
 Launch your Binder at
-[https://binderhub.ssl-hep.org/](https://binderhub.ssl-hep.org/), wait for the
-server to start, and note the server name from the launch URL. Once it is
-running, construct the MCP URL:
+[https://binderhub.af.uchicago.edu/](https://binderhub.af.uchicago.edu/), wait
+for the server to start, and note the server name from the launch URL. Once it
+is running, construct the MCP URL:
 
 ```text
 https://<jupyterhub-host>/user/<your-username>/<server-name>/proxy/3001/mcp?token=<token>
@@ -253,7 +252,7 @@ claude
 | What          | Where                                     |
 | ------------- | ----------------------------------------- |
 | NRP token     | `https://nrp.ai/llmtoken/`                |
-| BinderHub     | `https://binderhub.ssl-hep.org/`          |
+| BinderHub     | `https://binderhub.af.uchicago.edu/`      |
 | LLM endpoint  | `https://ellm.nrp-nautilus.io/anthropic`  |
 | Model name    | `qwen3` (for the opus/sonnet/haiku slots) |
 | MCP transport | `http-only` via `mcp-remote`              |

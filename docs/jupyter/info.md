@@ -15,6 +15,8 @@ site specific documents on Jupyter.
 
 - BNL JupyterLab - <https://jupyter-fedid.sdcc.bnl.gov/> and
   [documents](../bnl/jupyter.md).
+- [UChicago BinderHub](https://binderhub.af.uchicago.edu/) and
+  [documents](../uchicago/binderhub.md).
 - [SLAC JupyterLab](https://sdf.slac.stanford.edu/public/doc/#/interactive-compute?id=jupyter)
   and [documents](../slac/jupyter.md).
     - SLAC is migrating to a new computing facility SDF. As a result, we
