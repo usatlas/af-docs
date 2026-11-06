@@ -148,7 +148,7 @@ your singleuser pod, so authentication reuses your existing notebook credential
 `jupyterhub.af.uchicago.edu`).
 
 See
-[Connecting an MCP client to your notebook](uchicago/jupyter.md#connecting-an-mcp-client-to-your-notebook)
+[Connecting an MCP client to your notebook](uchicago/binderhub.md#connecting-an-mcp-client-to-your-notebook)
 for the full setup.
 
 ---
