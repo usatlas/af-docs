@@ -38,10 +38,10 @@ Code while utilizing the computational resources of UC AF.
 
 3. **Get the Server URL**:
     - Copy the address of your running server from your browser, up to and not
-      including `/lab`. This typically looks like
-      `https://jupyterhub.af.uchicago.edu/user/<your-username>/`.
+      including `/lab`. BinderHub launches a named server, so this looks like
+      `https://jupyterhub.af.uchicago.edu/user/<your-username>/<server-name>/`.
     - Append your token to it, so it looks like
-      `https://jupyterhub.af.uchicago.edu/user/<your-username>/?token=<your-api-token>`.
+      `https://jupyterhub.af.uchicago.edu/user/<your-username>/<server-name>/?token=<your-api-token>`.
 
 4. **Configure VS Code**:
     - Open Visual Studio Code.
