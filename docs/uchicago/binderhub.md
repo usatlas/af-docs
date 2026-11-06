@@ -37,12 +37,15 @@ Curated repositories are pre-built images maintained by the facility team. They
 start quickly because they don't need to be built, so we expect most users to
 pick one of these:
 
-| Curated repo         | Source                                                                                               | Description                                                |
-| -------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| `AB-STABLE`          | [`usatlas/analysisbase-dask-uc`](https://github.com/usatlas/analysisbase-dask-uc) (`binderhub-prod`) | Based on AnalysisBase                                      |
-| `AB-DEV`             | [`usatlas/analysisbase-dask-uc`](https://github.com/usatlas/analysisbase-dask-uc) (`binderhub-dev`)  | AnalysisBase with cutting edge uproot, dask, awkward, etc. |
-| `ml-platform:latest` | [`maniaclab/ml_platform`](https://github.com/maniaclab/ml_platform) (`main`)                         | Latest `ml_platform` machine learning image (recommended)  |
-| `ml-platform:2026.5` | [`maniaclab/ml_platform`](https://github.com/maniaclab/ml_platform) (`v2026.5.15`)                   | Pinned `ml_platform` release                               |
+| Curated repo                | Source                                                                                                   | Description                                                |
+| --------------------------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| `AB-STABLE`                 | [`usatlas/analysisbase-dask-uc`](https://github.com/usatlas/analysisbase-dask-uc) (`binderhub-prod`)     | Based on AnalysisBase                                      |
+| `AB-DEV`                    | [`usatlas/analysisbase-dask-uc`](https://github.com/usatlas/analysisbase-dask-uc) (`binderhub-dev`)      | AnalysisBase with cutting edge uproot, dask, awkward, etc. |
+| `ml-platform:latest`        | [`maniaclab/ml_platform`](https://github.com/maniaclab/ml_platform) (`main`)                             | Latest `ml_platform` machine learning image (recommended)  |
+| `ml-platform-cpu:latest`    | [`maniaclab/ml_platform-cpu-binder`](https://github.com/maniaclab/ml_platform-cpu-binder) (`main`)       | Latest CPU-only `ml_platform` image                        |
+| `ml-platform-gpu:latest`    | [`maniaclab/ml_platform-gpu-binder`](https://github.com/maniaclab/ml_platform-gpu-binder) (`main`)       | Latest GPU `ml_platform` image                             |
+| `ml-platform-cpu:2026.11.4` | [`maniaclab/ml_platform-cpu-binder`](https://github.com/maniaclab/ml_platform-cpu-binder) (`v2026.11.4`) | Pinned CPU-only `ml_platform` release                      |
+| `ml-platform-gpu:2026.11.4` | [`maniaclab/ml_platform-gpu-binder`](https://github.com/maniaclab/ml_platform-gpu-binder) (`v2026.11.4`) | Pinned GPU `ml_platform` release                           |
 
 These are the same images previously offered by the AF Portal JupyterLab. See
 [Docker Images](#docker-images) for what each one contains and how to install
@@ -64,10 +67,10 @@ platform that includes:
 
 **Available tags:**
 
-- `ml_platform-cpu:latest` - Latest stable version (recommended)
-- `ml_platform-cpu:YYYY.MM` - Specific (older) release versions
-- `ml_platform-gpu:latest` - Latest stable version (recommended)
-- `ml_platform-gpu:YYYY.MM` - Specific (older) release versions
+- `ml-platform-cpu:latest` - Latest stable version (recommended)
+- `ml-platform-cpu:<release>` - Pinned release, e.g. `ml-platform-cpu:2026.11.4`
+- `ml-platform-gpu:latest` - Latest stable version (recommended)
+- `ml-platform-gpu:<release>` - Pinned release, e.g. `ml-platform-gpu:2026.11.4`
 
 For the complete list of packages, version information, and detailed
 documentation, see the
