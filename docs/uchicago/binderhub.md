@@ -502,6 +502,12 @@ If you encounter issues not covered here:
 - Run `pixi --help` or `pixi <command> --help` for command-specific help
 - See the [Getting Help](#getting-help) section for facility support
 
+## Dask clusters
+
+The `AB-STABLE` and `AB-DEV` images come set up for the AF's Dask Gateway, so
+you can start a Dask cluster from the Dask sidebar or from code. See
+[Dask Gateway](dask_gateway.md).
+
 ## Connecting an MCP client to your notebook
 
 Once your JupyterLab is running you can attach an MCP
