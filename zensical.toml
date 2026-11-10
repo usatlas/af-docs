@@ -111,6 +111,10 @@ nav = [
           { UChicago = "uchicago/servicex.md" },
       ]},
 
+      { "Dask Gateway" = [
+          { UChicago = "uchicago/dask_gateway.md" },
+      ]},
+
       { AI = [
           { Overview = "ai.md" },
           { Inference = [
