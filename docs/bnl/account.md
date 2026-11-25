@@ -61,7 +61,7 @@ Federated ID account.
 ### Apply for account
 
 To start: connect to
- [https://federated.sdcc.bnl.gov/ ](https://federated.sdcc.bnl.gov/)
+ [https://jupyter-fedid.sdcc.bnl.gov](https://jupyter-fedid.sdcc.bnl.gov/)
 
 You will first come to this authorization page:
 
